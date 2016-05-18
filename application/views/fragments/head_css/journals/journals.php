@@ -1016,3 +1016,8 @@
 	}			
 	
 </style>
+<style>
+	li.paginate_button.active{
+		background-color: 
+	}
+</style>

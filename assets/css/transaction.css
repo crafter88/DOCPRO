@@ -82,3 +82,40 @@ ul#sidebar-container .panel-body .navbar-nav > li a{
 .side-body .row:first-child .btn.btn-default {
 	background-color: #FFF;
 }
+
+/** TABLE **/
+#summary-table_wrapper .row:first-child{
+	margin: 0;
+	background-color: transparent !important;
+}
+#summary-table_wrapper .row:first-child .col-sm-6{
+	margin: 0;
+	padding: 0;
+}
+#summary-table_length{
+	margin: 0;
+}
+#summary-table_filter{
+	margin: 0;
+}
+select[name=summary-table_length]{
+	padding-left: 28px;
+}
+
+#journal-entries-table_wrapper .row:first-child{
+	margin: 0;
+	background-color: transparent !important;
+}
+#journal-entries-table_wrapper .row:first-child .col-sm-6{
+	margin: 0;
+	padding: 0;
+}
+#journal-entries-table_length{
+	margin: 0;
+}
+#journal-entries-table_filter{
+	margin: 0;
+}
+select[name=journal-entries-table_length]{
+	padding-left: 28px;
+}

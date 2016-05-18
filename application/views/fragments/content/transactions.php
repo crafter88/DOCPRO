@@ -1,8 +1,8 @@
 				<div class="side-body padding-top">
 					<div class='row'>
 						<div class='col-md-12' style='margin-bottom: 10px; background-color: #FFF'>
-							<a class='btn btn-default hvr-sweep-to-top' href='<?php echo base_url(); ?>transactions' style='background-color: #000; color: #FFF;'>Summary</a>
-							<a class='btn btn-default hvr-sweep-to-top' href='<?php echo base_url(); ?>transactions/business_partners'>Business Partners</a>
+							<a class='btn btn-default' href='<?php echo base_url(); ?>transactions' style='background-color: #ECECEC; color: #000; font-weight: bold;'>Summary</a>
+							<a class='btn btn-default' href='<?php echo base_url(); ?>transactions/business_partners'>Business Partners</a>
 						</div>
 					</div>
 					
@@ -10,7 +10,7 @@
 						<div class='col-md-12'>
 							<div class='card'>
 								<div class='card-body' style='padding-top: 10px;'>
-									<table class='table table-hover table-bordered' id='summary-table' cellspacing="0" width="100%">
+									<table id='summary-table' class='table table-hover table-bordered' cellspacing="0">
 										<thead>
 											<th>Trans ID</th>
 											<th>Trans Date</th>

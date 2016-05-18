@@ -1,8 +1,8 @@
 	<div class="side-body padding-top">
 		<div class='row'>
 			<div class='col-md-12' style='margin-bottom: 10px; background-color: #FFF'>
-				<a class='btn btn-default hvr-sweep-to-top' href='<?php echo base_url(); ?>transactions'>Summary</a>
-				<a class='btn btn-default hvr-sweep-to-top' href='<?php echo base_url(); ?>transactions/business_partners' style='background-color: #000; color: #FFF;'>Business Partners</a>
+				<a class='btn btn-default' href='<?php echo base_url(); ?>transactions'>Summary</a>
+				<a class='btn btn-default' href='<?php echo base_url(); ?>transactions/business_partners' style='background-color: #ECECEC; color: #000; font-weight: bold;'>Business Partners</a>
 			</div>
 		</div>
 		
@@ -10,7 +10,7 @@
 			<div class='col-md-12'>
 				<div class='card'>
 					<div class='card-body' style='padding-top: 10px;'>
-						<table class='table table-hover table-bordered table-responsive' id='summary-table' cellspacing="0" width="100%">
+						<table id='summary-table' class='table table-hover table-bordered table-responsive' cellspacing="0" width="100%">
 							<thead>
 								<th>BP Class</th>
 								<th>BP Code</th>
@@ -228,7 +228,7 @@
 						</div>
 					</div>
 					<div class='card-body'>
-						<table class='table table-bordered table-hovered'>
+						<table id='transaction-details-table' class='table table-bordered table-hovered'>
 							<thead>
 								<th>Trans ID</th>
 								<th>Trans Date</th>
@@ -301,8 +301,6 @@
 							<tbody>
 								<tr>
 									<td>&nbsp; </td>
-									<td></td>
-									<td></td>
 									<td></td>
 									<td></td>
 									<td></td>

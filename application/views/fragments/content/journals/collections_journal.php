@@ -248,7 +248,7 @@
 													</div>
 													<div class='col-md-3 col-input-custom'>
 														<label>Name</label>
-														<input class='form-control' type='text' value='Sales Journal' style='text-align: center; color: #000C98;' readonly />
+														<input class='form-control' type='text' value='Collection Journal' style='text-align: center; color: #000C98;' readonly />
 													</div>
 													<div class='col-md-3 col-input-custom'>
 														<label>Number</label>
@@ -405,7 +405,7 @@
 										</div>
 										
 										<div class='card box box-primary' style='margin-top: 20px; background-color: #FFF;'>
-											<div class='card-header' style='background-color: #FFF; margin-bottom: 20px;'>
+											<div class='card-header' style='background-color: #FFF;'>
 												<div class='card-title box-title'>
 													<div class='title'>Document Details</div>
 												</div>
@@ -762,13 +762,16 @@
 											</div>
 										</div>
 							
-										<div class='card'>
+										<div class='card box box-primary' style='margin: 0;'>
 											<div class='card-header'>
 												<div class='card-title'>
 													<div class='title'>Journal Entries</div>
 												</div>
+												<div class="box-tools pull-right">
+													<button type='button' class="btn btn-box-tool" data-widget="collapse" style='border: none !important; margin: 0;'><i class="fa fa-plus"></i></button>
+												</div>
 											</div>
-											<div class='card-body'>
+											<div class='card-body box-body' style='display: none; padding-top: 0;'>
 												<table class='table table-hover table-bordered table-strip'>
 													<thead>
 														<th>JE Number</th>
