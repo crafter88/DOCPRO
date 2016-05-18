@@ -41,6 +41,9 @@
 		<link href='<?php echo base_url(); ?>assets/css/blank.css' rel='stylesheet' type='text/css'>
 		<link href='<?php echo base_url(); ?>assets/css/navbar-sidebar.css' rel='stylesheet' type='text/css'>
 
+		<!-- PIVOT CSS -->
+		<link href='<?php echo base_url(); ?>libs/pivotTable/pivot.css' rel='stylesheet' type='text/css'>
+
 		<style>
 			.popover.sidebar-popover-content{
 				margin-left: -5px !important;
@@ -677,6 +680,12 @@
 		</script>
 		
 		<script src="<?php echo base_url(); ?>libs/angular/angular.min.js"></script>
+		
+		<!--- PIVOT TABLE -->
+		<script src='<?php echo base_url(); ?>libs/pivotTable/jquery-ui.min.js'></script>
+		<script src='<?php echo base_url(); ?>libs/pivotTable/jquery.ui.touch-punch.min.js'></script>
+		<script src='<?php echo base_url(); ?>libs/pivotTable/pivot.js'></script>
+		
 		
 		<?php if(isset($footer_js)){ $this->load->view($footer_js); } ?>
 	</body>
