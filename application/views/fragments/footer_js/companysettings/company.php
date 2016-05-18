@@ -3,22 +3,9 @@
 		$('#company-table').DataTable({
 			columnDefs: [{targets: [0,1,2,5,6], width: '1px'}],
 		});
-
-		$('div').on('click', '.close-popover', function(){
-
-             $('.popover').popover('hide');
-        });
 		
 		$('#add').click(function(){
-			 $(this).popover({
-                animation: true,
-                html: true,
-                placement: 'right',
-                content: function(){
-                    return $('#add-modal').html();
-                },
-                container:'.navbar-body'
-            });
+			$('#add-modal').modal('show');
 		});
 	
 	

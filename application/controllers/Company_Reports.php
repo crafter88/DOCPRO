@@ -19,7 +19,7 @@ class Company_Reports extends MY_Controller{
 	}
 
 	public function get_company_documents(){
-		$this->load->view($this->layout, ['top_navbar'=>'fragments/top_navbar/global_top_navbar', 'content'=>'fragments/content/companyreports/company_documents', 'footer_js'=>'fragments/footer_js/companyreports/company_documents', 'back_button'=>'../company_reports', 'active_nav'=>'companyreports']);
+		$this->load->view($this->layout, ['top_navbar'=>'fragments/top_navbar/global_top_navbar', 'content'=>'fragments/content/companyreports/company_documents', 'back_button'=>'../company_reports', 'active_nav'=>'companyreports']);
 	}
 
 	public function get_fixed_assets(){

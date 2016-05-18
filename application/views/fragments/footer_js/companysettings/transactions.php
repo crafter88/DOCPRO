@@ -3,11 +3,6 @@
 		$('#transactions-table').DataTable({
 			columnDefs: [{targets: [0, 1, 2, 5, 7], width: '1px'}, {targets: [6, 8], width: '100px'}]
 		});
-
-		$('div').on('click', '.close-popover', function(){
-
-             $('.popover').popover('hide');
-        });
 		
 		$('#add').click(function(){
 			$('#add-modal').modal('show');

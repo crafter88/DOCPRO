@@ -11,7 +11,7 @@ class Financial_Reports extends MY_Controller{
 	}
 
 	public function get_trial_balance(){
-		$this->load->view($this->layout, ['top_navbar'=>'fragments/top_navbar/global_top_navbar', 'head_css' => 'fragments/head_css/financialreports/trial_balance', 'content'=>'fragments/content/financialreports/trial_balance', 'back_button'=>'../financial_reports', 'active_nav'=>'financialreports']);
+		$this->load->view($this->layout, ['top_navbar'=>'fragments/top_navbar/global_top_navbar', 'head_css' => 'fragments/head_css/financialreports/trial_balance', 'content'=>'fragments/content/financialreports/trial_balance', 'footer_js'=>'fragments/footer_js/financialreports/trial_balance', 'back_button'=>'../financial_reports', 'active_nav'=>'financialreports']);
 	}
 
 	public function get_balance_sheet(){

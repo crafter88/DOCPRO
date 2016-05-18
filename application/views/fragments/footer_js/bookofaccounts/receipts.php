@@ -47,16 +47,6 @@
 		order: [[ 1, "asc" ]],
 	});
 
-	$('div').on('click', '.close-popover', function(){
-
-             $('.popover').popover('hide');
-    });
-
-    $('div').on('click', '.btn-info', function(){
-
-             $('.popover').popover('hide');
-    });
-
 	$('#receipts-table_wrapper').on('click', '.view', function(){
 		var data = table.row($(this).closest('tr')).data();
 		set_modal_data(data);
@@ -72,16 +62,7 @@
 		$('#modal-credit-ammount').attr('readonly', 'true');
 		$('#modal-submit').css('display', 'none');
 		$('#modal-close').css('display', 'inline');
-		$(this).popover({
-                animation: true,
-                html: true,
-                placement: 'right',
-                content: function(){
-                    return $('#modal').html();
-                },
-                container: '.navbar-body'
-                
-        });
+		$("#modal").modal("show");
 	});
 
 	var set_modal_data = function(data){

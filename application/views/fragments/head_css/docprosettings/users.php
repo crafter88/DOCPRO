@@ -62,13 +62,3 @@
 		margin-bottom: 10px;
 	}
 </style>
-
-<style>
-	.popover{
-
-		z-index: 1010;
-		max-width: 50%;
-		background-color: #e8e8e8;
-		box-shadow: 10px;
-	}
-</style>

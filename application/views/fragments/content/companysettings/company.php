@@ -39,56 +39,58 @@
 	<button class='btn btn-default select-option' type='button' style='width: 100%'>Employee</button>
 </div>
 
-<div id='add-modal' style="display: none; width: 500px;">
-	<div>
-		<div>
-			<div style='border-bottom: 1px groove; height: 30px; padding-bottom: 10px;'>
-				<button class='close close-popover' type='button' data-dismiss='modal' style='padding-right: 10px;'>&times;</span></button>
-				<h4 class='modal-title' style="font-family: 'Roboto Condensed', sans-serif;">Add Company</h4>
+<div id='add-modal' class='modal fade' role='dialog' tabindex='-1'>
+	<div class='modal-dialog'>
+		<div class='modal-content'>
+			<div class='modal-header'>
+				<button class='close' type='button' data-dismiss='modal'><span aria-hidden='true'>&times;</span></button>
+				<h4 class='modal-title'>Add</h4>
 			</div>
-			<div class='col-md-8'>
-				<form action='company/add' method='post' class='body'>
-					<div class='modal-body'>
-						<input type='text' style='border: none; float: right; width: 80px; margin-right: 50px; text-align: center; font-weight: bold;'>
-						<label style='float: right;'>Sequence: </label>
-						<table width='100%'>
-							<tr>
-								<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Classification : </label></td>
-								<td colspan='3' style='padding-top: 10px;'>
-									<div class='input-group' style='width: 100%'>
-										<input class='form-control' type='text' name='classification' placeholder='Select...' readonly>
-										<span type='button' class='input-group-addon classification-btn'><i class='fa fa-caret-right'></i></span>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Company Name : </label></td>
-								<td colspan='3' style='padding-top: 10px;'><input class='form-control' type='text' name='name'></td>
-							</tr>
-							<tr>
-								<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Individual Name : </label></td>
-								<td colspan='3' style='padding-top: 10px;'><input class='form-control' type='text' name='indname'></td>
-							</tr>
-							<tr>
-								<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Address : </label></td>
-								<td colspan='3' style='padding-top: 10px;'><input class='form-control' type='text' name='addr'></td>
-							</tr>
-							<tr>
-								<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>TIN : </label></td>
-								<td style='padding-top: 10px;'><input class='form-control' type='text' name='tin'></td>
-							</tr>
-						</table>
-						<br>	
-					</div>
-					<div class='modal-footer' style='border-top: 1px inset; padding-top: 5px; padding-bottom: 0px;'>
-						<button class='btn btn-info btn-sm' type='submit' style='float: right;'>OK</button>
-					</div>
-				</form>
-			</div>
-			<div class='col-md-4' id='add-options'style='background-color: white;'>
-
-			</div>
-			
+			<form action='#' method='post'>
+				<div class='modal-body'>
+					<input type='text' style='border: none; float: right; width: 40px; margin-right: 50px;'>
+					<label style='float: right;'>Sequence: </label>
+					
+					<table width='90%'>
+						<tr>
+							<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Classification</label></td>
+							<td colspan='3' style='padding-top: 10px;'>
+								<div class='input-group' style='width: 100%'>
+									<input class='form-control' type='text' name='classification' placeholder='Select...' readonly>
+									<span type='button' class='input-group-addon classification-btn'><i class='fa fa-caret-right'></i></span>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Name</label></td>
+							<td colspan='3' style='padding-top: 10px;'><input class='form-control' type='text' name=''></td>
+						</tr>
+						<tr>
+							<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Address</label></td>
+							<td colspan='3' style='padding-top: 10px;'><input class='form-control' type='text' name=''></td>
+						</tr>
+						<tr>
+							<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Tax Type</label></td>
+							<td style='padding-top: 10px;'>
+								<select class='form-control'>
+									<option value='IT'>Income Tax</option>
+									<option value='VAT'>Value Added Tax</option>
+									<option value='PT'>Percentage Tax</option>
+									<option value='ET'>Excise Tax</option>
+									<option value='EWT'>Expanded Withholding Tax</option>
+									<option value='FWT'>Final Withholding Tax</option>
+									<option value='ST'>Special Tax</option>
+								</select>
+							</td>
+							<td style='padding-top: 10px; padding-left: 10px; padding-right: 10px;'><label>TIN</label></td>
+							<td style='padding-top: 10px;'><input class='form-control' type='text' name=''></td>
+						</tr>
+					</table>
+				</div>
+				<div class='modal-footer'>
+					<button class='btn btn-primary btn-sm' type='submit' style='float: left;'>Ok</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
