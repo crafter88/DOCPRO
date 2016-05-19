@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2016 at 08:32 AM
+-- Generation Time: May 19, 2016 at 08:35 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.5
 
@@ -106,13 +106,6 @@ CREATE TABLE `company_branches` (
   `tt_id` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `company_branches`
---
-
-INSERT INTO `company_branches` (`cb_id`, `cb_code`, `cb_class`, `cb_type`, `cb_name`, `cb_ind_name`, `cb_address`, `cb_tin`, `cb_tax_type`, `bpc_id`, `bpt_id`, `tt_id`) VALUES
-(1, 31221, 'Supplier-Ordinary Goods', 'Non-Individual', 'bbbbbbbbbbbbb', 'dsfsd', 'sdfsd', 456, 'VAT', 31, 2, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -189,13 +182,6 @@ CREATE TABLE `modes_of_payment` (
   `mop_type` varchar(255) NOT NULL,
   `top_id` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `modes_of_payment`
---
-
-INSERT INTO `modes_of_payment` (`mop_id`, `mop_code`, `mop_name`, `mop_shortname`, `mop_type`, `top_id`) VALUES
-(1, 21, 'sfdgh', 'we', 'Credit', 2);
 
 -- --------------------------------------------------------
 
@@ -416,7 +402,7 @@ ALTER TABLE `business_partners_type`
 -- AUTO_INCREMENT for table `company_branches`
 --
 ALTER TABLE `company_branches`
-  MODIFY `cb_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cb_id` int(255) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `discounts`
 --
@@ -436,7 +422,7 @@ ALTER TABLE `journals`
 -- AUTO_INCREMENT for table `modes_of_payment`
 --
 ALTER TABLE `modes_of_payment`
-  MODIFY `mop_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `mop_id` int(255) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `profiles`
 --
