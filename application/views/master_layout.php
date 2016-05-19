@@ -433,25 +433,25 @@
 		<div id='tables-popover' style='display: none;'>
 			<div class='sidebar-popover-content'>
 				<div class='col-md-12 sidebar-popover'>
-					<a href="<?php echo base_url(); ?>journals/sales" style='padding-right: 50px;'><i class='fa fa-file'></i>&nbsp; Value Added Tax</a>
+					<a href='<?php echo base_url(); ?>tables/value_added_tax' style='padding-right: 50px;'><i class='fa fa-file'></i>&nbsp; Value Added Tax</a>
 				</div>
 				<div class='col-md-12 sidebar-popover'>
-					<a href="<?php echo base_url(); ?>journals/receipts" style='padding-right: 55px;'><i class='fa fa-file'></i>&nbsp; Withholding Tax</a>
+					<a href='<?php echo base_url(); ?>tables/withholding_tax' style='padding-right: 55px;'><i class='fa fa-file'></i>&nbsp; Withholding Tax</a>
 				</div>
 				<div class='col-md-12 sidebar-popover'>
-					<a href="<?php echo base_url(); ?>journals/collections" style='padding-right: 74px;'><i class='fa fa-file'></i>&nbsp; Accumulator</a>
+					<a href='<?php echo base_url(); ?>tables/accumulator'  style='padding-right: 74px;'><i class='fa fa-file'></i>&nbsp; Accumulator</a>
 				</div>
 				<div class='col-md-12 sidebar-popover'>
-					<a href="<?php echo base_url(); ?>journals/purchases" style='padding-right: 24px;'><i class='fa fa-file'></i>&nbsp; Financial Statements</a>
+					<a href='<?php echo base_url(); ?>tables/financial_statements' style='padding-right: 24px;'><i class='fa fa-file'></i>&nbsp; Financial Statements</a>
 				</div>
 				<div class='col-md-12 sidebar-popover'>
-					<a href="<?php echo base_url(); ?>journals/purchases" style='padding-right: 72px;'><i class='fa fa-file'></i>&nbsp; Trial Balance</a>
+					<a href='<?php echo base_url(); ?>tables/trial_balance' style='padding-right: 72px;'><i class='fa fa-file'></i>&nbsp; Trial Balance</a>
 				</div>
 				<div class='col-md-12 sidebar-popover'>
-					<a href="<?php echo base_url(); ?>journals/purchases" style='padding-right: 59px;'><i class='fa fa-file'></i>&nbsp; General Ledger</a>
+					<a href='<?php echo base_url(); ?>tables/general_ledger' style='padding-right: 59px;'><i class='fa fa-file'></i>&nbsp; General Ledger</a>
 				</div>
 				<div class='col-md-12 sidebar-popover'>
-					<a href="<?php echo base_url(); ?>journals/purchases" style='padding-right: 43px;'><i class='fa fa-file'></i>&nbsp; Subsidiary Ledger</a>
+					<a href='<?php echo base_url(); ?>tables/subsidiary_ledger' style='padding-right: 43px;'><i class='fa fa-file'></i>&nbsp; Subsidiary Ledger</a>
 				</div>
 			</div>
 		</div>
