@@ -47,24 +47,46 @@ $route['docpro_settings']												= 'Docpro_Settings/get_docpro_settings';
 
 $route['docpro_settings/users']											= 'Docpro_Settings/get_users';
 $route['docpro_settings/users/get']										= 'Docpro_Settings_DIR/Users/get';
+$route['docpro_settings/users/add']										= 'Docpro_Settings_DIR/Users/add';
+$route['docpro_settings/users/edit']										= 'Docpro_Settings_DIR/Users/edit';
 
 $route['docpro_settings/company']										= 'Docpro_Settings/get_company';
 $route['docpro_settings/company/get']									= 'Docpro_Settings_DIR/Company/get';
 $route['docpro_settings/company/add']									= 'Docpro_Settings_DIR/Company/add';
+$route['docpro_settings/company/edit']									= 'Docpro_Settings_DIR/Company/edit';
+$route['docpro_settings/company/update']									= 'Docpro_Settings_DIR/Company/update';
 
 $route['docpro_settings/transactions']									= 'Docpro_Settings/get_transactions';
+
 $route['docpro_settings/documents']										= 'Docpro_Settings/get_documents';
+$route['docpro_settings/documents/get']										= 'Docpro_Settings_DIR/Documents/get';
+$route['docpro_settings/documents/add']										= 'Docpro_Settings_DIR/Documents/add';
 
 $route['docpro_settings/modes_of_payment']								= 'Docpro_Settings/get_modes_of_payment';
-$route['docpro_settings/modes_of_payments/get']							= 'Docpro_Settings_DIR/Modes_Of_Payment/get';
-$route['docpro_settings/modes_of_payments/add']							= 'Docpro_Settings_DIR/Modes_Of_Payment/add';
-$route['docpro_settings/modes_of_payments/edit']						= 'Docpro_Settings_DIR/Modes_Of_Payment/edit';
-$route['docpro_settings/modes_of_payments/update']						= 'Docpro_Settings_DIR/Modes_Of_Payment/update';
+$route['docpro_settings/modes_of_payment/get']							= 'Docpro_Settings_DIR/Modes_Of_Payment/get';
+$route['docpro_settings/modes_of_payment/add']							= 'Docpro_Settings_DIR/Modes_Of_Payment/add';
+$route['docpro_settings/modes_of_payment/edit']						= 'Docpro_Settings_DIR/Modes_Of_Payment/edit';
+$route['docpro_settings/modes_of_payment/update']						= 'Docpro_Settings_DIR/Modes_Of_Payment/update';
 
 $route['docpro_settings/taxes']											= 'Docpro_Settings/get_taxes';
+$route['docpro_settings/taxes/get']											= 'Docpro_Settings_DIR/Taxes/get';
+$route['docpro_settings/taxes/add']											= 'Docpro_Settings_DIR/Taxes/add';
+$route['docpro_settings/taxes/edit']											= 'Docpro_Settings_DIR/Taxes/edit';
+$route['docpro_settings/taxes/update']											= 'Docpro_Settings_DIR/Taxes/update';
+
 $route['docpro_settings/discounts']										= 'Docpro_Settings/get_discounts';
+$route['docpro_settings/discounts/get']										= 'Docpro_Settings_DIR/Discounts/get';
+$route['docpro_settings/discounts/add']										= 'Docpro_Settings_DIR/Discounts/add';
+$route['docpro_settings/discounts/edit']										= 'Docpro_Settings_DIR/Discounts/edit';
+$route['docpro_settings/discounts/update']										= 'Docpro_Settings_DIR/Discounts/update';
+
 $route['docpro_settings/chart_of_accounts']								= 'Docpro_Settings/get_chart_of_accounts';
+
 $route['docpro_settings/banks']											= 'Docpro_Settings/get_banks';
+$route['docpro_settings/banks/get']											= 'Docpro_Settings_DIR/Banks/get';
+$route['docpro_settings/banks/add']											= 'Docpro_Settings_DIR/Banks/add';
+$route['docpro_settings/banks/edit']											= 'Docpro_Settings_DIR/Banks/edit';
+$route['docpro_settings/banks/update']											= 'Docpro_Settings_DIR/Banks/update';
 
 $route['company_settings']												= 'Company_Settings/get_company_settings';
 $route['company_settings/company']										= 'Company_Settings/get_company';
