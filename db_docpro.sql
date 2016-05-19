@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2016 at 06:50 AM
+-- Generation Time: May 19, 2016 at 08:32 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.5
 
@@ -106,6 +106,13 @@ CREATE TABLE `company_branches` (
   `tt_id` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `company_branches`
+--
+
+INSERT INTO `company_branches` (`cb_id`, `cb_code`, `cb_class`, `cb_type`, `cb_name`, `cb_ind_name`, `cb_address`, `cb_tin`, `cb_tax_type`, `bpc_id`, `bpt_id`, `tt_id`) VALUES
+(1, 31221, 'Supplier-Ordinary Goods', 'Non-Individual', 'bbbbbbbbbbbbb', 'dsfsd', 'sdfsd', 456, 'VAT', 31, 2, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -179,8 +186,16 @@ CREATE TABLE `modes_of_payment` (
   `mop_code` int(255) NOT NULL,
   `mop_name` varchar(255) NOT NULL,
   `mop_shortname` varchar(255) NOT NULL,
-  `mop_type` varchar(255) NOT NULL
+  `mop_type` varchar(255) NOT NULL,
+  `top_id` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `modes_of_payment`
+--
+
+INSERT INTO `modes_of_payment` (`mop_id`, `mop_code`, `mop_name`, `mop_shortname`, `mop_type`, `top_id`) VALUES
+(1, 21, 'sfdgh', 'we', 'Credit', 2);
 
 -- --------------------------------------------------------
 
@@ -250,8 +265,7 @@ INSERT INTO `tax_types` (`tt_id`, `tt_code`, `tt_name`, `tt_shortname`) VALUES
 (5, 5, 'Expanded Withholding Tax', 'EWT'),
 (6, 6, 'Final Withholding Tax', 'FWT'),
 (7, 7, 'Special Tax', 'ST'),
-(8, 8, 'No Value Added Tax', 'NV'),
-(9, 9, 'Exempt Tax', 'ET');
+(8, 8, 'Non-Value Added Tax', 'NV');
 
 -- --------------------------------------------------------
 
@@ -402,7 +416,7 @@ ALTER TABLE `business_partners_type`
 -- AUTO_INCREMENT for table `company_branches`
 --
 ALTER TABLE `company_branches`
-  MODIFY `cb_id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `cb_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `discounts`
 --
@@ -422,7 +436,7 @@ ALTER TABLE `journals`
 -- AUTO_INCREMENT for table `modes_of_payment`
 --
 ALTER TABLE `modes_of_payment`
-  MODIFY `mop_id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `mop_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `profiles`
 --
