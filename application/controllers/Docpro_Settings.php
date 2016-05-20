@@ -23,7 +23,7 @@ class Docpro_Settings extends MY_Controller{
         $this->load->view($this->layout, ['head_css'=>'fragments/head_css/docprosettings/modes_of_payment', 'top_navbar'=>'fragments/top_navbar/global_top_navbar', 'content'=>'fragments/content/docprosettings/modes_of_payment', 'footer_js'=>'fragments/footer_js/docprosettings/modes_of_payment', 'back_button'=>'../docpro_settings', 'active_nav'=>'docprosettings', 'top_type'=>Types_Of_Payment_model::get()]);
     }	
     public function get_taxes(){
-        $this->load->view($this->layout, ['head_css'=>'fragments/head_css/docprosettings/taxes', 'top_navbar'=>'fragments/top_navbar/global_top_navbar', 'content'=>'fragments/content/docprosettings/taxes', 'footer_js'=>'fragments/footer_js/docprosettings/taxes', 'back_button'=>'../docpro_settings', 'active_nav'=>'docprosettings']);
+        $this->load->view($this->layout, ['head_css'=>'fragments/head_css/docprosettings/taxes', 'top_navbar'=>'fragments/top_navbar/global_top_navbar', 'content'=>'fragments/content/docprosettings/taxes', 'footer_js'=>'fragments/footer_js/docprosettings/taxes', 'back_button'=>'../docpro_settings', 'active_nav'=>'docprosettings', 'tt_type'=>Tax_Types_Model::get()]);
     }	
     public function get_discounts(){
         $this->load->view($this->layout, ['head_css'=>'fragments/head_css/docprosettings/discounts', 'top_navbar'=>'fragments/top_navbar/global_top_navbar', 'content'=>'fragments/content/docprosettings/discounts', 'footer_js'=>'fragments/footer_js/docprosettings/discounts', 'back_button'=>'../docpro_settings', 'active_nav'=>'docprosettings']);
