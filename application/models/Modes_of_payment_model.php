@@ -10,7 +10,7 @@ class Modes_Of_Payment_Model extends CI_Model{
     }
     public static function add($data){
         self::$db->insert('modes_of_payment', $data);
-        return self::$db->affected_rows() > 0 ? true : false;
+        return self::$db->affected_rows() > 0 ? self::$db->insert_id() : false;
     }
     public static function edit($id, $data){
         self::$db->where('mop_id', $id)->update('modes_of_payment', $data);
@@ -18,6 +18,6 @@ class Modes_Of_Payment_Model extends CI_Model{
     }
     public static function update($data){
         self::$db->insert('modes_of_payment', $data);
-        return self::$db->affected_rows() > 0 ? true : false;
+        return self::$db->affected_rows() > 0 ? self::$db->insert_id() : false;
     }
 }
