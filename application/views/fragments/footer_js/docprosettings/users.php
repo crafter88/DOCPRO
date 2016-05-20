@@ -3,15 +3,20 @@
         var table = $('#users-table').DataTable({
             ajax: '/docpro_settings/users/get',
             columns: [{
-               mData: null,
-               bSortable: false,
-               mRender: function(data, type, full){
+                mData: null, bSortable: false,
+                mRender: function(data, type, full){
                    return "<button type='button' class='btn btn-primary btn-xs view' data-hint='View'><i class='fa fa-eye'></i></button>\n\
                            <button type='button' class='btn btn-success btn-xs edit' data-hint='Edit'><i class='fa fa-pencil'></i></button>";
-               }
-           },
-            {'data': 'u_id'}, {'data': 'u_name'}, {'data': 'u_pass_text'}, {'data': 'cb_name'}, {'data': 'u_type'},],
-            columnDefs: [{targets: 0, width: '1px'}, {targets: 1, width: '1px'},{targets: 5, width: '81px'}] ,
+                }
+            },
+                {'data': 'u_id'}, {'data': 'u_code'},
+                {
+                mRender: function(data, type, full){
+                   return full.p_fname+" "+full.p_mname+" "+full.p_lname;
+                }
+            },
+            {'data': 'u_name'}, {'data': 'u_pass_text'}, {'data': 'cb_name'}, {'data': 'u_type'},],
+            columnDefs: [{targets: 0, width: '1px'}, {targets: 1, width: '1px'},{targets: 2, width: '1px'}] ,
         });
         $('#add').click(function(){
             $(this).popover({

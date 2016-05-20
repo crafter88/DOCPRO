@@ -13,6 +13,7 @@
 						<thead>
 							<th>Options</th>
 							<th>Sequence</th>
+							<th>Code</th>
 							<th>Name</th>
 							<th>Username</th>
 							<th>Password</th>
@@ -48,7 +49,27 @@
 				<table width='90%'>
 					<tr>
 						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>First Name</label></td>
-						<td colspan='3' style='padding-top: 10px;'><input class='form-control' type='text' name='add-username'></td>
+						<td colspan='3' style='padding-top: 10px;'><input class='form-control' type='text' name='add-fname'></td>
+					</tr>
+					<tr>
+						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Middle Name</label></td>
+						<td colspan='3' style='padding-top: 10px;'><input class='form-control' type='text' name='add-mname'></td>
+					</tr>
+					<tr>
+						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Last Name</label></td>
+						<td colspan='3' style='padding-top: 10px;'><input class='form-control' type='text' name='add-lname'></td>
+					</tr>
+					<tr>
+						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Address</label></td>
+						<td colspan='3' style='padding-top: 10px;'><input class='form-control' type='text' name='add-address'></td>
+					</tr>
+					<tr>
+						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Contact Number</label></td>
+						<td colspan='3' style='padding-top: 10px;'><input class='form-control' type='text' name='add-cno'></td>
+					</tr>
+					<tr>
+						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Email</label></td>
+						<td colspan='3' style='padding-top: 10px;'><input class='form-control' type='text' name='add-email                                '></td>
 					</tr>
 					<tr>
 						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Username</label></td>
@@ -63,11 +84,11 @@
 						<td colspan='3' style='padding-top: 10px;'><input class='form-control' type='text' name='add-r-password'></td>
 					</tr>
 					<tr>
+						<input type='hidden' name='add-cb-id'>
 						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Company</label></td>
 						<td colspan='3' style='padding-top: 10px;'>
 							<div class='input-group' style='width: 100%'>
 								<input class='form-control' type='text' name='add-company' placeholder='Select...' readonly>
-								<input name='add-cb-id' type='hidden' value=''>
 								<span type='button' class='input-group-addon add-company-btn'><i class='fa fa-caret-right'></i></span>
 							</div>
 					</tr>
