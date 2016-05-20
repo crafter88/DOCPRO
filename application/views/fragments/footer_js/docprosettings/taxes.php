@@ -11,7 +11,7 @@
                 }
             },
             {'data': 't_id'}, {'data': 't_code'}, {'data': 't_type'}, {'data': 't_name'}, {'data': 't_shortname'}, {'data': 't_rate'}, {'data': 't_base'},],
-            columnDefs: [{targets: 0, width: '60px'}, {targets: 1, width: '1px'}, {targets: 2, width: '50px'}, {targets: 3, width: '50px'}, {targets: 5, width: '50px'}, {targets: 6, width: '50px'}, {targets: 7, width: '50px'}],
+            columnDefs: [{targets: 0, width: '60px'}, {targets: 1, width: '1px'}, {targets: 2, width: '1px'}, {targets: 3, width: '130px'}, {targets: 5, width: '1px'}, {targets: 6, width: '50px'}, {targets: 7, width: '100px'}],
         });
         $('#add').click(function(){
             $(this).popover({
@@ -52,6 +52,7 @@
             $('#edit-rate').val(data.t_rate);
             $('#edit-base').val(data.t_base);
             $('#edit-id').val(data.t_id);
+            $('#edit-type-id').val(data.tt_id);
             $(this).popover({
                 animation: true,
                 html: true,
@@ -70,6 +71,7 @@
             $('#update-shortname').val(data.t_shortname);
             $('#update-rate').val(data.t_rate);
             $('#update-base').val(data.t_base);
+            $('#update-type-id').val(data.tt_id);
             $(this).popover({
                 animation: true,
                 html: true,

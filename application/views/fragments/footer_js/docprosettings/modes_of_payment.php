@@ -49,6 +49,7 @@
             $('#edit-shortname').val(data.mop_shortname);
             $('#edit-type').val(data.mop_type);
             $('#edit-id').val(data.mop_id);
+            $('#edit-type-id').val(data.top_id);
             $(this).popover({
                 animation: true,
                 html: true,
@@ -66,6 +67,7 @@
             $('#update-name').val(data.mop_name);
             $('#update-shortname').val(data.mop_shortname);
             $('#update-type').val(data.mop_type);
+            $('#update-type-id').val(data.top_id);
             $(this).popover({
                 animation: true,
                 html: true,
@@ -80,13 +82,16 @@
             $('.popover').popover('hide');
         });
         $('div').on('click', '.select-option', function(){
-                $("input[name='add-type']").val($(this)[0].textContent);
+            $("input[name='add-type']").val($(this)[0].textContent);
+            $("input[name='add-type-id']").val($(this).attr('type-id'));
         });
         $('div').on('click', '.select-option', function(){
-                $("input[name='edit-type']").val($(this)[0].textContent);
+            $("input[name='edit-type']").val($(this)[0].textContent);
+            $("input[name='edit-type-id']").val($(this).attr('type-id'));
         });
         $('div').on('click', '.select-option', function(){
-                $("input[name='update-type']").val($(this)[0].textContent);
+            $("input[name='update-type']").val($(this)[0].textContent);
+            $("input[name='update-type-id']").val($(this).attr('type-id'));
         });
         $('.navbar-body').on('click', '.add-type-btn', function(){
             $('#add-options').html($('#mop-type-select').html());
