@@ -41,10 +41,6 @@
 				<label style='float: right;'>Sequence: </label>
 				<table width='90%'>
 					<tr>
-						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Code</label></td>
-						<td colspan='3' style='padding-top: 10px;'><input class='form-control' type='text' name='add-code'></td>
-					</tr>
-					<tr>
 						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Name</label></td>
 						<td colspan='3' style='padding-top: 10px;'><input class='form-control' type='text' name='add-name'></td>
 					</tr>
@@ -124,10 +120,6 @@
 				<label style='float: right;'>Sequence: </label>
 				<table width='90%'>
 					<tr>
-						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Code</label></td>
-						<td colspan='3' style='padding-top: 10px;'><input id='edit-code' class='form-control' type='text' name='edit-code'></td>
-					</tr>
-					<tr>
 						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Name</label></td>
 						<td colspan='3' style='padding-top: 10px;'><input id='edit-name' class='form-control' type='text' name='edit-name'></td>
 					</tr>
@@ -136,6 +128,7 @@
 						<td colspan='3' style='padding-top: 10px;'><input id='edit-shortname' class='form-control' type='text' name='edit-shortname'></td>
 					</tr>
 					<tr>
+						<input id='edit-type-id' type='hidden' name='edit-type-id'>
 						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Type</label></td>
 						<td colspan='3' style='padding-top: 10px;'>
 							<div class='input-group' style='width: 100%'>
@@ -163,13 +156,10 @@
 	<div class='col-md-8'>
 		<form action='modes_of_payment/update' method='post'>
 			<div class='modal-body'>
-				<input id='update-seq' type='text' style='border: none; float: right; width: 40px; margin-right: 50px; padding-left: 3px;' disabled>
+				<input id='update-seq' type='hidden' >
+				<input type='text' style='border: none; float: right; width: 40px; margin-right: 50px; padding-left: 3px;' disabled>
 				<label style='float: right;'>Sequence: </label>
 				<table width='90%'>
-					<tr>
-						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Code</label></td>
-						<td colspan='3' style='padding-top: 10px;'><input id='update-code' class='form-control' type='text' name='update-code'></td>
-					</tr>
 					<tr>
 						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Name</label></td>
 						<td colspan='3' style='padding-top: 10px;'><input id='update-name' class='form-control' type='text' name='update-name'></td>
@@ -179,6 +169,7 @@
 						<td colspan='3' style='padding-top: 10px;'><input id='update-shortname' class='form-control' type='text' name='update-shortname'></td>
 					</tr>
 					<tr>
+						<input id='update-type-id' type='hidden' name='update-type-id'>
 						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Type</label></td>
 						<td colspan='3' style='padding-top: 10px;'>
 							<div class='input-group' style='width: 100%'>

@@ -27,13 +27,9 @@
 	</div>
 </div>
 <div id='t-type-select' style='display: none;'>
-	<button class='btn btn-default select-option' type-id='1' type='button' style='width: 100%'>IT</button>
-	<button class='btn btn-default select-option' type-id='2' type='button' style='width: 100%'>VAT</button>
-	<button class='btn btn-default select-option' type-id='3' type='button' style='width: 100%'>PT</button>
-	<button class='btn btn-default select-option' type-id='4' type='button' style='width: 100%'>EXT</button>
-	<button class='btn btn-default select-option' type-id='5' type='button' style='width: 100%'>EWT</button>
-	<button class='btn btn-default select-option' type-id='6' type='button' style='width: 100%'>FWT</button>
-	<button class='btn btn-default select-option' type-id='7' type='button' style='width: 100%'>ST</button>
+	<?php foreach($tt_type as $tt){if($tt->tt_code != 8){?>
+	<button class='btn btn-default select-option' type-id='<?php echo $tt->tt_code;?>' type='button' style='width: 100%'><?php echo $tt->tt_name;?></button>
+	<?php }}?>
 </div>
 <div id='add-popover' class='modal fade' role='dialog' tabindex='-1'>
 	<div class='modal-header'>
@@ -47,7 +43,7 @@
 				<label style='float: right;'>Sequence: </label>
 				<table width='90%'>
 					<tr>
-						<input type='hidden' name='add-type-id' value=''>
+						<input type='hidden' name='add-type-id'>
 						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Type</label></td>
 						<td colspan='3' style='padding-top: 10px;'>
 							<div class='input-group' style='width: 100%'>
@@ -142,7 +138,7 @@
 				<label style='float: right;'>Sequence: </label>
 				<table width='90%'>
 					<tr>
-						<input type='hidden' name='edit-type-id' value=''>
+						<input id='edit-type-id' type='hidden' name='edit-type-id'>
 						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Type</label></td>
 						<td colspan='3' style='padding-top: 10px;'>
 							<div class='input-group' style='width: 100%'>
@@ -191,7 +187,7 @@
 				<label style='float: right;'>Sequence: </label>
 				<table width='90%'>
 					<tr>
-						<input type='hidden' name='update-type-id' value=''>
+						<input id='update-type-id' type='hidden' name='update-type-id'>
 						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Type</label></td>
 						<td colspan='3' style='padding-top: 10px;'>
 							<div class='input-group' style='width: 100%'>
