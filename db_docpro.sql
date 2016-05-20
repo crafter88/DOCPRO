@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2016 at 08:35 AM
+-- Generation Time: May 20, 2016 at 08:50 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.5
 
@@ -223,7 +223,8 @@ CREATE TABLE `taxes` (
   `t_name` varchar(255) NOT NULL,
   `t_shortname` varchar(255) NOT NULL,
   `t_rate` varchar(255) NOT NULL,
-  `t_base` int(255) NOT NULL
+  `t_base` int(255) NOT NULL,
+  `tt_id` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -437,7 +438,7 @@ ALTER TABLE `taxes`
 -- AUTO_INCREMENT for table `tax_types`
 --
 ALTER TABLE `tax_types`
-  MODIFY `tt_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `tt_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `types_of_payment`
 --
