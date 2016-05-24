@@ -227,7 +227,7 @@ angular.module('journals')
 				controller: function($scope){
 					$scope.set_type_of_payment = function(event){
 						var type = event.target.attributes.payment_type.value;
-						$scope.type_of_payment = type;
+						$scope.payment_type = type;
 					}
 				},
 				template: function(){
