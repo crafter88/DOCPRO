@@ -1,4 +1,4 @@
-				<div class="side-body padding-top" id='journal-navs' ng-app='journals'>
+				<div class="side-body padding-top" id='journal-navs' ng-app='journals' ng-controller='transaction'>
 					<div id='animated-container' class='row' style='-webkit-animation-duration: 0.5s; margin-top: 20px;'>
 						<div class='col-md-12'>
 							<div role="tabpanel">
@@ -203,7 +203,7 @@
 										</div>
 										
 									</div>
-									<div role="tabpanel" class="tab-pane" id="new-transactions" ng-controller='transaction'>
+									<div role="tabpanel" class="tab-pane" id="new-transactions">
 										<div class='card'>
 											<div class='card-body' style='padding-top: 25px;'>
 												<div class='col-md-12' style='margin-left: 12%;'>
@@ -211,19 +211,19 @@
 														<div class='col-md-4' style='width: 22%'>
 															<div class='form-group'>
 																<label for='input-transaction-id'>Transaction ID</label>
-																<input type='text' id='input-transaction-id' class='form-control' name='input-transaction-id' style='color: #000C98; text-align: center;' readonly />
+																<input ng-model='transaction_id' type='text' id='input-transaction-id' class='form-control' name='input-transaction-id' style='color: #000C98; text-align: center;' readonly />
 															</div>
 														</div>
 														<div class='col-md-4' style='width: 24%'>
 															<div class='form-group'>
 																<label for='input-transaction-date'>Transaction Date</label>
-																<input type='text' id='input-transaction-date' class='form-control' name='input-transaction-date' style='color: #000C98; text-align: center;' readonly />
+																<input ng-model='transaction_date' type='text' id='input-transaction-date' class='form-control' name='input-transaction-date' style='color: #000C98; text-align: center;' readonly />
 															</div>
 														</div>
 														<div class='col-md-4' style='width: 27%'>
 															<div class='form-group'>
 																<label for='input-transaction-date'>Journal Transaction ID</label>
-																<input type='text' id='input-transaction-date' class='form-control' name='input-transaction-date' style='color: #000C98; text-align: center;' readonly />
+																<input ng-model='journal_transaction_id' type='text' id='input-transaction-date' class='form-control' name='input-transaction-date' style='color: #000C98; text-align: center;' readonly />
 															</div>
 														</div>
 													</form>
@@ -248,15 +248,15 @@
 													</div>
 													<div class='col-md-3 col-input-custom'>
 														<label>Name</label>
-														<input class='form-control' type='text' value='Sales Journal' style='text-align: center; color: #000C98;' readonly />
+														<input ng-model='document_name' class='form-control' type='text' style='text-align: center; color: #000C98;' readonly />
 													</div>
 													<div class='col-md-3 col-input-custom'>
 														<label>Number</label>
-														<input class='form-control' type='text' style='color: #000C98; text-align: center;' />
+														<input ng-model='document_number' class='form-control' type='text' style='color: #000C98; text-align: center;' />
 													</div>
 													<div class='col-md-3 col-input-custom'>
 														<label>Date</label>
-														<input class='form-control' style='color: #000C98; text-align: center;' type='date' />
+														<input ng-model='document_date' class='form-control' style='color: #000C98; text-align: center;' type='date' />
 													</div>
 												</div>
 												<div class='col-md-12 transaction-input-row-gutter' style='margin-top: 5px;'>
@@ -265,7 +265,7 @@
 													</div>
 													<div class='col-md-3 col-input-custom'>
 														<label>Name</label>
-														<select class='form-control select2'>
+														<select ng-model='business_partner_name' class='form-control select2'>
 															<option>Company 1</option>
 															<option>Company 2</option>
 															<option>Company 3</option>
@@ -273,11 +273,11 @@
 													</div>
 													<div class='col-md-3 col-input-custom'>
 														<label>Address</label>
-														<input class='form-control' type='text' style='color: #000C98; text-align: center;' readonly />
+														<input ng-model='business_partner_address' class='form-control' type='text' style='color: #000C98; text-align: center;' readonly />
 													</div>
 													<div class='col-md-3 col-input-custom'>
 														<label style='width: 100%'>TIN</label>
-														<input class='form-control' type='text' style='color: #000C98; text-align: center;' readonly />
+														<input ng-model='business_partner_tin' class='form-control' type='text' style='color: #000C98; text-align: center;' readonly />
 													</div>
 												</div>
 												<div class='col-md-12 transaction-input-row-gutter' style='margin-top: 10px;'>
@@ -286,15 +286,15 @@
 													</div>
 													<div class='col-md-3 col-input-custom'>
 														<label>Particulars</label>
-														<input type='text' class='form-control' style='color: #000C98; text-align: center;' readonly />
+														<input ng-model='business_partner_particulars' type='text' class='form-control' style='color: #000C98; text-align: center;' readonly />
 													</div>
 													<div class='col-md-3 col-input-custom'>
 														<label>Period</label>
-														<input type='text' class='form-control' style='color: #000C98; text-align: center;' />
+														<input ng-model='particulars_period' type='text' class='form-control' style='color: #000C98; text-align: center;' />
 													</div>
 													<div class='col-md-3 col-input-custom'>
 														<label>Remarks</label>
-														<input type='text' class='form-control' style='color: #000C98; text-align: center;' />
+														<input ng-model='particulars_remarks' type='text' class='form-control' style='color: #000C98; text-align: center;' />
 													</div>
 												</div>
 												
@@ -305,15 +305,15 @@
 													</div>
 													<div class='col-md-3 col-input-custom'>
 														<label>Type of Payment</label>
-														<input ng-model='type_of_payment' type='text' class='form-control' style='color: #000C98; text-align: center;' readonly />
+														<input ng-model='payment_type' type='text' class='form-control' style='color: #000C98; text-align: center;' readonly />
 													</div>
 													<div class='col-md-3 col-input-custom'>
 														<label>Terms</label>
-														<input type='text' class='form-control' style='color: #000C98; text-align: center;' />
+														<input ng-model='payment_terms' type='number' class='form-control' style='color: #000C98; text-align: center;' />
 													</div>
 													<div class='col-md-3 col-input-custom'>
 														<label>Due Date</label>
-														<input type='date' class='form-control' style='color: #000C98; text-align: center;' readonly />
+														<input value='{{ payment_terms | computeDueDate:this }}' type='text' class='form-control' style='color: #000C98; text-align: center;' readonly />
 													</div>
 												</div>
 												
@@ -324,7 +324,7 @@
 													</div>
 													<div class='col-md-2 col-input-custom'>
 														<label>Mode of Payment</label>
-														<select class='form-control select2'>
+														<select ng-model='payment_mode' class='form-control select2'>
 															<option>Bills</option>
 															<option>Check</option>
 															<option>Petty Cash Fund</option>
@@ -332,19 +332,19 @@
 													</div>
 													<div class='col-md-2 col-input-custom'>
 														<label>Amount Paid</label>
-														<input type='text' class='form-control' style='color: #000C98; text-align: center;' />
+														<input ng-model='payment_amount_paid' type='text' class='form-control' style='color: #000C98; text-align: center;' />
 													</div>
 													<div class='col-md-2 col-input-custom'>
 														<label>Check Number</label>
-														<input type='text' class='form-control' style='color: #000C98; text-align: center;' />
+														<input ng-model='payment_check_number' type='text' class='form-control' style='color: #000C98; text-align: center;' />
 													</div>
 													<div class='col-md-2 col-input-custom'>
 														<label>Bank</label>
-														<input type='text' class='form-control' style='color: #000C98; text-align: center;' />
+														<input ng-model='payment_bank' type='text' class='form-control' style='color: #000C98; text-align: center;' />
 													</div>
 													<div class='col-md-2 col-input-custom'>
 														<label>Bank Account Number</label>
-														<input type='text' class='form-control' style='color: #000C98; text-align: center;' />
+														<input ng-model='payment_bank_account_number' type='text' class='form-control' style='color: #000C98; text-align: center;' />
 													</div>
 												</div>
 												
@@ -355,23 +355,23 @@
 													</div>
 													<div class='col-md-2 col-input-custom'>
 														<label>Gross Amount</label>
-														<input type='text' class='form-control' style='color: #000C98; text-align: center;' />
+														<input ng-model='amounts_gross_amount'type='text' class='form-control' style='color: #000C98; text-align: center;' />
 													</div>
 													<div class='col-md-2 col-input-custom'>
 														<label>VAT</label>
-														<input type='text' class='form-control' style='color: #000C98; text-align: center;' />
+														<input ng-model='amounts_vat' type='text' class='form-control' style='color: #000C98; text-align: center;' />
 													</div>
 													<div class='col-md-2 col-input-custom'>
 														<label>TAX Withheld</label>
-														<input type='text' class='form-control' style='color: #000C98; text-align: center;' />
+														<input ng-model='amounts_tax_withheld' type='text' class='form-control' style='color: #000C98; text-align: center;' />
 													</div>
 													<div class='col-md-2 col-input-custom'>
 														<label>Deductions</label>
-														<input type='text' class='form-control' style='color: #000C98; text-align: center;' />
+														<input ng-model='amounts_deductions' type='text' class='form-control' style='color: #000C98; text-align: center;' />
 													</div>
 													<div class='col-md-2 col-input-custom'>
 														<label>Net Amount</label>
-														<input type='text' class='form-control' style='color: #000C98; text-align: center;' />
+														<input ng-model='amounts_net_amount' type='text' class='form-control' style='color: #000C98; text-align: center;' />
 													</div>
 												</div>
 												
@@ -382,23 +382,23 @@
 													</div>
 													<div class='col-md-2 col-input-custom'>
 														<label>Gross Amount</label>
-														<input type='text' class='form-control' style='color: #000C98; text-align: center;' readonly />
+														<input ng-model='variance_gross_amount' type='text' class='form-control' style='color: #000C98; text-align: center;' readonly />
 													</div>
 													<div class='col-md-2 col-input-custom'>
 														<label>VAT</label>
-														<input type='text' class='form-control' style='color: #000C98; text-align: center;' readonly />
+														<input ng-model='variance_vat' type='text' class='form-control' style='color: #000C98; text-align: center;' readonly />
 													</div>
 													<div class='col-md-2 col-input-custom'>
 														<label>TAX Withheld</label>
-														<input type='text' class='form-control' style='color: #000C98; text-align: center;' readonly />
+														<input ng-model='variance_tax_withheld' type='text' class='form-control' style='color: #000C98; text-align: center;' readonly />
 													</div>
 													<div class='col-md-2 col-input-custom'>
 														<label>Deductions</label>
-														<input type='text' class='form-control' style='color: #000C98; text-align: center;' readonly />
+														<input ng-model='variance_deductions' type='text' class='form-control' style='color: #000C98; text-align: center;' readonly />
 													</div>
 													<div class='col-md-2 col-input-custom'>
 														<label>Net Amount</label>
-														<input type='text' class='form-control' style='color: #000C98; text-align: center;' readonly />
+														<input ng-model='variance_net_amount' type='text' class='form-control' style='color: #000C98; text-align: center;' readonly />
 													</div>
 												</div>
 											</div>
@@ -804,7 +804,7 @@
 										</div>
 										
 									</div>
-									<div role="tabpanel" class="tab-pane" id="documents" ng-controller='document'>
+									<div role="tabpanel" class="tab-pane" id="documents">
 										<div class='row'>
 											<div class='col-md-12' style='margin-bottom: 10px;'>
 												<div class='card' style='padding-bottom: 10px;'>
@@ -813,11 +813,11 @@
 															<table width='100%'>
 																<tr>
 																	<td style='width: 100px;'><label style='margin: 0;'>Transaction ID:</label></td>
-																	<td style='width: 60px;'><input value='23' type='text' id='input-transaction-id' class='form-control' name='input-transaction-id' style='width: 50px; border: none; background-color: #404040; color: #FFF; text-decoration: underline;' readonly /></td>
+																	<td style='width: 60px;'><input ng-model='transaction_id' type='text' id='input-transaction-id' class='form-control' name='input-transaction-id' style='width: 50px; border: none; background-color: #404040; color: #FFF; text-decoration: underline;' readonly /></td>
 																	<td style='width: 120px;'><label style='margin: 0;'>Transaction Date:</label></td>
-																	<td style='width: 155px;'><input value='January 28, 2018' type='text' id='input-transaction-date' class='form-control' name='input-transaction-date' style='width: 150px; border: none; background-color: #404040; color: #FFF; text-decoration: underline;' readonly /></td>
+																	<td style='width: 155px;'><input ng-model='transaction_date' value='January 28, 2018' type='text' id='input-transaction-date' class='form-control' name='input-transaction-date' style='width: 150px; border: none; background-color: #404040; color: #FFF; text-decoration: underline;' readonly /></td>
 																	<td style='width: 150px;'><label style='margin: 0;'>Journal Transaction ID</label></td>
-																	<td><input value='12' type='text' id='input-transaction-date' class='form-control' name='input-transaction-date' style='width: 50px; border: none; background-color: #404040; color: #FFF; text-decoration: underline;' readonly /></td>
+																	<td><input ng-model='journal_transaction_id' value='12' type='text' id='input-transaction-date' class='form-control' name='input-transaction-date' style='width: 50px; border: none; background-color: #404040; color: #FFF; text-decoration: underline;' readonly /></td>
 																</tr>
 															</table>
 														</div>
@@ -825,57 +825,57 @@
 														<div class='row' style='padding-left: 1%; padding-right: 1%;'>
 															<table width='100%'>
 																<tr>
-																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; width: 200px; padding-top: 20px;'><label>Company</label></td>
+																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; width: 200px;'><label>Company</label></td>
 																	<td style='padding-left: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
 																	<td>&nbsp;</td>
-																	<td style='padding-right: 5px; padding-top: 20px;'><input class='form-control' type='text' style='border: none; background-color: #FFF; text-align: right; font-size: 14px !important;' value='Sales Journal' readonly /></td>
-																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000; width: 200px; padding-top: 20px;'><label>Document</label></td>
+																	<td style='padding-right: 5px;'><input ng-model='document_name' class='form-control' type='text' style='border: none; background-color: #FFF; text-align: right; font-size: 14px !important;' readonly /></td>
+																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000; width: 200px;'><label>Document</label></td>
 																</tr>
 																<tr>
-																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Company Address</label></td>
+																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000;'><label>Company Address</label></td>
 																	<td style='padding-left: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
 																	<td>&nbsp;</td>
-																	<td style='padding-right: 5px; padding-top: 20px;'><input class='form-control' type='text' style='border: none; background-color: #FFF; text-align: right; font-size: 14px !important;' readonly /></td>
-																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Document Number</label></td>
+																	<td style='padding-right: 5px;'><input ng-model='document_number' class='form-control' type='text' style='border: none; background-color: #FFF; text-align: right; font-size: 14px !important;' readonly /></td>
+																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>Document Number</label></td>
 																</tr>
 																<tr>
-																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Company TIN</label></td>
+																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000;'><label>Company TIN</label></td>
 																	<td style='padding-left: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
 																	<td>&nbsp;</td>
-																	<td style='padding-right: 5px; padding-top: 20px;'><input class='form-control' type='text' style='border: none; background-color: #FFF; text-align: right; font-size: 14px !important;' readonly /></td>
-																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Document Date</label></td>
+																	<td style='padding-right: 5px;'><input value='{{document_date | formatDate}}' class='form-control' type='text' style='border: none; background-color: #FFF; text-align: right; font-size: 14px !important;' readonly /></td>
+																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>Document Date</label></td>
 																</tr>
 																<tr>
-																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Name</label></td>
-																	<td style='padding-left: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000;'><label>Name</label></td>
+																	<td style='padding-left: 5px;'><input ng-model='business_partner_name' class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
 																	<td>&nbsp;</td>
-																	<td style='padding-right: 5px; padding-top: 20px;'><input class='form-control' type='text' style='border: none; background-color: #FFF; text-align: right; font-size: 14px !important;' readonly /></td>
-																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Payment</label></td>
+																	<td style='padding-right: 5px;'><input ng-model='payment_type' class='form-control' type='text' style='border: none; background-color: #FFF; text-align: right; font-size: 14px !important;' readonly /></td>
+																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>Payment</label></td>
 																</tr>
 																<tr>
-																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Address</label></td>
-																	<td style='padding-left: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000;'><label>Address</label></td>
+																	<td style='padding-left: 5px;'><input ng-model='business_partner_address' class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
 																	<td>&nbsp;</td>
-																	<td style='padding-right: 5px; padding-top: 20px;'><input class='form-control' type='text' style='border: none; background-color: #FFF; text-align: right; font-size: 14px !important;' readonly /></td>
-																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Terms</label></td>
+																	<td style='padding-right: 5px;'><input ng-model='payment_terms' class='form-control' type='text' style='border: none; background-color: #FFF; text-align: right; font-size: 14px !important;' readonly /></td>
+																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>Terms</label></td>
 																</tr>
 																<tr>
-																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>TIN</label></td>
-																	<td style='padding-left: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000;'><label>TIN</label></td>
+																	<td style='padding-left: 5px;'><input ng-model='business_partner_tin' class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
 																	<td>&nbsp;</td>
-																	<td style='padding-right: 5px; padding-top: 20px;'><input class='form-control' type='text' style='border: none; background-color: #FFF; text-align: right; font-size: 14px !important;' readonly /></td>
-																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Due Date</label></td>
+																	<td style='padding-right: 5px;'><input value='{{ payment_terms | computeDueDate:this }}' class='form-control' type='text' style='border: none; background-color: #FFF; text-align: right; font-size: 14px !important;' readonly /></td>
+																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>Due Date</label></td>
 																</tr>
 																<tr>
-																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Business type</label></td>
-																	<td style='padding-left: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000;'><label>Business type</label></td>
+																	<td style='padding-left: 5px;'><input ng-model='business_partner_business_type' class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
 																	<td>&nbsp;</td>
-																	<td style='padding-right: 5px; padding-top: 20px;'>&nbsp;</td>
+																	<td style='padding-right: 5px;'>&nbsp;</td>
 																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000;'>&nbsp;</td>
 																</tr>
 																<tr>
-																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; padding-bottom: 40px; padding-top: 20px;'><label>Particulars</label></td>
-																	<td colspan='3' style='padding-left: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; padding-bottom: 40px;'><label>Particulars</label></td>
+																	<td colspan='3' style='padding-left: 5px; padding-bottom: 40px;'><input ng-model='business_partner_particulars' class='form-control' type='text' style='border: none; background-color: #FFF;' readonly /></td>
 																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000;'>&nbsp;</td>
 																</tr>
 															</table>
@@ -954,60 +954,60 @@
 														<div class='row' style='padding-left: 1%; padding-right: 1%; margin-top: -1px'>
 															<table width='100%'>
 																<tr>
-																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; width: 200px; padding-top: 20px;'><label>Mode of Payement<label></td>
-																	<td style='padding-left: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; width: 200px;'><label>Mode of Payment<label></td>
+																	<td style='padding-left: 5px;'><input ng-model='payment_mode' class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
 																	<td>&nbsp;</td>
-																	<td style='padding-right: 5px; padding-top: 20px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
-																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000; width: 200px; padding-top: 20px;'><label>VAT</label></td>
+																	<td style='padding-right: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000; width: 200px;'><label>VAT</label></td>
 																</tr>
 																<tr>
-																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Payment Amount</label></td>
-																	<td style='padding-left: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000;'><label>Payment Amount</label></td>
+																	<td style='padding-left: 5px;'><input ng-model='payment_amount_paid' class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
 																	<td>&nbsp;</td>
-																	<td style='padding-right: 5px; padding-top: 20px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
-																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>VAT Sales</label></td>
+																	<td style='padding-right: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>VAT Sales</label></td>
 																</tr>
 																<tr>
-																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Check Number</label></td>
-																	<td style='padding-left: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000;'><label>Check Number</label></td>
+																	<td style='padding-left: 5px;'><input ng-model='payment_check_number' class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
 																	<td>&nbsp;</td>
-																	<td style='padding-right: 5px; padding-top: 20px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
-																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Zero rated sales</label></td>
+																	<td style='padding-right: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>Zero rated sales</label></td>
 																</tr>
 																<tr>
-																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Check Date</label></td>
+																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000;'><label>Check Date</label></td>
 																	<td style='padding-left: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
 																	<td>&nbsp;</td>
-																	<td style='padding-right: 5px; padding-top: 20px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
-																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Exempt Sales</label></td>
+																	<td style='padding-right: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>Exempt Sales</label></td>
 																</tr>
 																<tr>
-																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Check Payee</label></td>
+																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000;'><label>Check Payee</label></td>
 																	<td style='padding-left: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
 																	<td>&nbsp;</td>
-																	<td style='padding-right: 5px; padding-top: 20px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
-																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Non-VAT Sales</label></td>
+																	<td style='padding-right: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>Non-VAT Sales</label></td>
 																</tr>
 																<tr>
-																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Bank</label></td>
-																	<td style='padding-left: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000;'><label>Bank</label></td>
+																	<td style='padding-left: 5px;'><input ng-model='payment_bank' class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
 																	<td>&nbsp;</td>
-																	<td style='padding-right: 5px; padding-top: 20px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
-																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Total</label></td>
+																	<td style='padding-right: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>Total</label></td>
 																</tr>
 																<tr>
-																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Account Number</label></td>
-																	<td style='padding-left: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000;'><label>Account Number</label></td>
+																	<td style='padding-left: 5px;'><input ng-model='payment_bank_account_number' class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
 																	<td>&nbsp;</td>
-																	<td style='padding-right: 5px; padding-top: 20px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
-																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Withholding Tax</label></td>
+																	<td style='padding-right: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>Withholding Tax</label></td>
 																</tr>
 																<tr>
-																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'></td>
+																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000;'></td>
 																	<td style='padding-left: 5px;'></td>
 																	<td>&nbsp;</td>
-																	<td style='padding-right: 5px; padding-top: 20px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
-																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>Final Tax Withheld</label></td>
+																	<td style='padding-right: 5px;'><input class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>Final Tax Withheld</label></td>
 																</tr>
 															</table>
 														</div>
@@ -1079,36 +1079,36 @@
 																				<td style='width: 50%; padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 20px;'><label>SC Discount</label></td>
 																			</tr>
 																			<tr>
-																				<td style='padding-top: 10px;'><input type='text' class='form-control' style='border: none; background-color: #FFF; text-align: right;' readonly></td>
-																				<td style='width: 50%; padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 10px;'><label>SC ID</label></td>
+																				<td><input type='text' class='form-control' style='border: none; background-color: #FFF; text-align: right;' readonly></td>
+																				<td style='width: 50%; padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>SC ID</label></td>
 																			</tr>
 																			<tr>
-																				<td style='padding-top: 10px;'><input type='text' class='form-control' style='border: none; background-color: #FFF; text-align: right;' readonly></td>
-																				<td style='width: 50%; padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 10px;'><label>Cash Discount</label></td>
+																				<td><input type='text' class='form-control' style='border: none; background-color: #FFF; text-align: right;' readonly></td>
+																				<td style='width: 50%; padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>Cash Discount</label></td>
 																			</tr>
 																			<tr>
-																				<td style='padding-top: 10px;'><input type='text' class='form-control' style='border: none; background-color: #FFF; text-align: right;' readonly></td>
-																				<td style='width: 50%; padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 10px;'><label>Net Amount</label></td>
+																				<td><input type='text' class='form-control' style='border: none; background-color: #FFF; text-align: right;' readonly></td>
+																				<td style='width: 50%; padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>Net Amount</label></td>
 																			</tr>
 																			<tr>
-																				<td style='padding-top: 10px;'>&nbsp;</td>
-																				<td style='width: 50%; padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 10px;'>&nbsp;</td>
+																				<td>&nbsp;</td>
+																				<td style='width: 50%; padding-left: 10px; background-color: #BBBBBB; color: #000;'>&nbsp;</td>
 																			</tr>
 																			<tr>
-																				<td style='padding-top: 10px;'><input type='text' class='form-control' style='border: none; background-color: #FFF; text-align: right;' readonly></td>
-																				<td style='width: 50%; padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 10px;'><label>Prepared by</label></td>
+																				<td><input type='text' class='form-control' style='border: none; background-color: #FFF; text-align: right;' readonly></td>
+																				<td style='width: 50%; padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>Prepared by</label></td>
 																			</tr>
 																			<tr>
-																				<td style='padding-top: 10px;'><input type='text' class='form-control' style='border: none; background-color: #FFF; text-align: right;' readonly></td>
-																				<td style='width: 50%; padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 10px;'><label>Date</label></td>
+																				<td><input type='text' class='form-control' style='border: none; background-color: #FFF; text-align: right;' readonly></td>
+																				<td style='width: 50%; padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>Date</label></td>
 																			</tr>
 																			<tr>
-																				<td style='padding-top: 10px;'><input type='text' class='form-control' style='border: none; background-color: #FFF; text-align: right;' readonly></td>
-																				<td style='width: 50%; padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 10px;'><label>Received by</label></td>
+																				<td><input type='text' class='form-control' style='border: none; background-color: #FFF; text-align: right;' readonly></td>
+																				<td style='width: 50%; padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>Received by</label></td>
 																			</tr>
 																			<tr>
-																				<td style='padding-top: 10px;'><input type='text' class='form-control' style='border: none; background-color: #FFF; text-align: right;' readonly></td>
-																				<td style='width: 50%; padding-left: 10px; background-color: #BBBBBB; color: #000; padding-top: 10px;'><label>Date</label></td>
+																				<td><input type='text' class='form-control' style='border: none; background-color: #FFF; text-align: right;' readonly></td>
+																				<td style='width: 50%; padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>Date</label></td>
 																			</tr>
 																		</table>
 																	</td>
