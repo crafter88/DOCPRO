@@ -6,11 +6,11 @@ class Users_Model extends CI_Model {
         self::$db = get_instance()->db;
     }
     public static function get(){
-        return self::$db->from('users u')->join('profiles p', 'u.p_id=p.p_id')->join('p_cb pc', 'p.p_id=pc.p_id')->join('company_branches cb', 'pc.cb_id=cb.cb_id')->get()->result();
+        return self::$db->from('users u')->join('company_branches cb', 'cb.cb_id=u.cb_id')->get()->result();
     }
     public static function add($data){
         self::$db->insert('users', $data);
-        return self::$db->affected_rows() > 0 ? self::$db->insert_id() : false;
+        return self::$db->affected_rows() > 0 ? true : false;
     }
     public static function edit($id, $data){
         self::$db->where('u_id', $id)->update('users', $data);

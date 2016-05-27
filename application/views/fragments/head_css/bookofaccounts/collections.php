@@ -139,3 +139,40 @@
 		margin-bottom: 0;
 	}
 </style>
+
+<style>
+	.popover{
+		z-index: 999999999999;
+		max-width: 100%;
+		background-color: #e8e8e8;
+		box-shadow: 10px;
+		width: 500px;
+		height: 500px;
+	}
+
+	.popover-content{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	.modal-title{
+		padding-left: 10px;
+	}
+
+	.body{
+		background-color: white;
+	}
+
+	.modal-footer{
+		background-color: #e8e8e8;
+	}
+
+	.modal-body{
+		width: 100%;
+		height: 400px;
+   	    padding-right: 20px;
+   	    padding-left: 20px;
+        border-right: 1px solid #D5D5D5;
+	}
+
+</style>

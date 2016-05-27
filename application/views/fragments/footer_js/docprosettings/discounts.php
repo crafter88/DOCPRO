@@ -13,6 +13,16 @@
             {'data': 'di_code'}, {'data': 'di_name'}, {'data': 'di_shortname'},],
             columnDefs: [{targets: 0, width: '60px'}, {targets: 1, width: '150px'}, {targets: 3, width: '200px'}],
         });
+          $('div').on('click', '.close-popover', function(){
+
+             $('.popover').popover('hide');
+        });
+
+        $('div').on('click', '#close-btn', function(){
+
+             $('.popover').popover('hide');
+        });
+        
         $('#add').click(function(){
             $(this).popover({
                 animation: true,

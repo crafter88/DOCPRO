@@ -13,6 +13,17 @@
             {'data': 't_id'}, {'data': 't_code'}, {'data': 't_type'}, {'data': 't_name'}, {'data': 't_shortname'}, {'data': 't_rate'}, {'data': 't_base'},],
             columnDefs: [{targets: 0, width: '60px'}, {targets: 1, width: '1px'}, {targets: 2, width: '1px'}, {targets: 3, width: '130px'}, {targets: 5, width: '1px'}, {targets: 6, width: '50px'}, {targets: 7, width: '100px'}],
         });
+
+        $('div').on('click', '.close-popover', function(){
+
+             $('.popover').popover('hide');
+        });
+
+        $('div').on('click', '#close-btn', function(){
+
+             $('.popover').popover('hide');
+        });
+
         $('#add').click(function(){
             $(this).popover({
                 animation: true,
@@ -36,11 +47,14 @@
             $(this).popover({
                 animation: true,
                 html: true,
-                placement: 'right',
+                placement: function(context,src){
+                    $(context).addClass('view-popover-css');
+                    return 'right';
+                },
                 content: function(){
                     return $('#view-popover').html();
                 },
-                container: '.navbar-body'
+                container:'.navbar-body'
             });
         });
         $('#taxes-table').on('click', '.edit', function(){
@@ -105,6 +119,18 @@
         });
         $('.navbar-body').on('click', '.update-type-btn', function(){
             $('#update-options').html($('#t-type-select').html());
+        });
+
+        $('.navbar-body').on('click', '.form-control', function(){
+            $('#add-options').empty();
+        });
+
+        $('.navbar-body').on('click', '.form-control', function(){
+            $('#edit-options').empty();
+        });
+
+        $('.navbar-body').on('click', '.form-control', function(){
+            $('#update-options').empty();
         });
         initButtonPrevention();
     });

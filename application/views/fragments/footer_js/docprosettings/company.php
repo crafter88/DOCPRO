@@ -13,16 +13,28 @@
             {'data': 'cb_id'}, {'data': 'cb_code'}, {'data': 'cb_class'}, {'data': 'cb_type'}, {'data': 'cb_name'}, {'data': 'cb_ind_name'}, {'data': 'cb_address'}, {'data': 'cb_tin'},{'data': 'cb_tax_type'},],
             columnDefs: [{targets: 0, width: '60px'}, {targets: 1, width: '1px'}, {targets: 2, width: '1px'}, {targets: 3, width: '120px'}, {targets: 4, width: '60px'}, {targets: 6, width: '101px'}, {targets: 8, width: '80px'}, {targets: 9, width: '55px'}],
         });
+
+        $('div').on('click', '.close-popover', function(){
+
+             $('.popover').popover('hide');
+        });
+
+        $('div').on('click', '#close-btn', function(){
+
+             $('.popover').popover('hide');
+        });
+
         $('#add').click(function(){
-            $(this).popover({
+             $(this).popover({
                 animation: true,
                 html: true,
                 placement: 'right',
                 content: function(){
                     return $('#add-popover').html();
                 },
-                container: '.navbar-body'
+                container:'.navbar-body'
             });
+
         });
         $('#company-table').on('click', '.view', function(){
             var data = table.row(this.closest('tr')).data();
@@ -35,14 +47,17 @@
             $('#view-address').val(data.cb_address);
             $('#view-tin').val(data.cb_tin);
             $('#view-tax-type').val(data.cb_tax_type);
-            $(this).popover({
+             $(this).popover({
                 animation: true,
                 html: true,
-                placement: 'right',
-                content: function(){
-                    return $('#view-popover').html();
+                placement: function(context,src){
+                    $(context).addClass('view-popover');
+                    return 'right';
                 },
-                container: '.navbar-body'
+                content: function(){
+                    return $('#view-modal').html();
+                },
+                container:'.navbar-body'
             });
         });
         $('#company-table').on('click', '.edit', function(){
@@ -67,7 +82,7 @@
                 content: function(){
                     return $('#edit-popover').html();
                 },
-                container: '.navbar-body'
+                container:'.navbar-body'
             });
         });
         $('#company-table').on('click', '.update', function(){
@@ -203,6 +218,18 @@
         $("input:not(input[name='update-tax-type']), select").focus(function(){
             $('.popover').hide();
         });
+
+        $('.navbar-body').on('click', '.form-control', function(){
+            $('#add-options').empty();
+        });
+         $('.navbar-body').on('click', '.form-control', function(){
+            $('#edit-options').empty();
+        });
+
+        $('.navbar-body').on('click', '.form-control', function(){
+            $('#update-options').empty();
+        });
+        
         initButtonPrevention();
     });
     var initButtonPrevention = function(){

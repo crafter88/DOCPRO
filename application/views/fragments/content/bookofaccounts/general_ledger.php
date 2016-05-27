@@ -32,71 +32,74 @@
 </div>
 
 <div class="modal fade" role="dialog" id="modal">
-	<div class="modal-dialog modal-md">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" ><span>&times;</span></button>
-				<h4 class="modal-title">General Ledger</h4>
+	<div>
+		<div>
+			<div  style='border-bottom: 1px groove; height: 30px; padding-bottom: 10px;'>
+				<button class='close close-popover' type='button' data-dismiss='modal' style='padding-right: 10px;'><span aria-hidden='true'><span>&times;</span></button>
+				<h4 class="modal-title" style="font-family: 'Roboto Condensed', sans-serif;">General Ledger</h4>
 			</div>
-			<div class="modal-body">
-				<input id='input-id' type='hidden' name='id' />
-				<div class='row'>
-					<div class='col-md-1' style="text-align: right; margin-bottom: 5px;"><label>ID: </label></div>
-					<div class='col-md-7' style="padding-left: 0; margin-bottom: 5px;"><label id='modal-id' style='text-decoration: underline;'></label></div>
+			<form action="#" method='post' class='body'>
+				<div class="modal-body">
+					<input id='input-id' type='hidden' name='id' />
+					<div class='row'>
+						<div class='col-md-1' style="text-align: right; margin-bottom: 5px;"><label>ID: </label></div>
+						<div class='col-md-7' style="padding-left: 0; margin-bottom: 5px;"><label id='modal-id' style='text-decoration: underline;'></label></div>
+					</div>
+					<div class='row'>
+						<div class='col-md-2 col-md-offset-2' style="text-align: right; margin-bottom: 0; margin-top: 5px;"><label>Journal</label></div>
+						<div class='col-md-4' style='padding-left: 0;'><input id='modal-journal' class='form-control' type='text' style='text-align: center' readonly /></div>
+					</div>
+					<div class='row'>
+						<div class='col-md-4' style='margin-bottom: 5px;'>
+							<label style='font-size: 11px;'>Document Year</label>
+							<input id='modal-doc-yr' class='form-control' type='text' style='text-align: center' readonly />
+						</div>
+						<div class='col-md-4' style='margin-bottom: 5px;'>
+							<label style='font-size: 11px;'>Document Month</label>
+							<input id='modal-doc-month' class='form-control' type='text' style='text-align: center' readonly />
+						</div>
+						<div class='col-md-4' style='margin-bottom: 5px;'>
+							<label style='font-size: 11px;'>Document Date</label>
+							<input id='modal-doc-date' class='form-control' type='text' style='text-align: center' readonly />
+						</div>
+					</div>
+					<div class='row'>
+						<div class='col-md-3' style='padding-right: 0; margin-bottom: 5px;'>
+							<label style='font-size: 11px;'>Account Code</label>
+							<input id='modal-acc-code' class='form-control' type='text' style='text-align: center' readonly />
+						</div>
+						<div class='col-md-9' style=' margin-bottom: 5px;'>
+							<label style='font-size: 11px;'>Account Name</label>
+							<input id='modal-acc-name' class='form-control' type='text' style='text-align: center' readonly />
+						</div>
+					</div>
+					<div class='row'>
+						<div class='col-md-3' style='padding-right: 0; margin-bottom: 10px;'>
+							<label style='font-size: 11px;'>Account Category Code</label>
+							<input id='modal-acc-cat-code' class='form-control' type='text' style='text-align: center' readonly />
+						</div>
+						<div class='col-md-9' style='margin-bottom: 10px;'>
+							<label style='font-size: 11px;'>Account Category Name</label>
+							<input id='modal-acc-cat-name' class='form-control' type='text' style='text-align: center' readonly />
+						</div>
+					</div>
+					<div class='row'>
+						<div class='col-md-6' style='padding-right: 0; margin-bottom: 0;'>
+							<label style='font-size: 11px;'>Debit Ammount</label>
+							<input id='modal-debit-ammount' class='form-control' type='text' style='text-align: center' readonly />
+						</div>
+						<div class='col-md-6' style='margin-bottom: 0;'>
+							<label style='font-size: 11px;'>Credit Ammount</label>
+							<input id='modal-credit-ammount' class='form-control' type='text' style='text-align: center' readonly />
+						</div>
+					</div>
 				</div>
-				<div class='row'>
-					<div class='col-md-2 col-md-offset-2' style="text-align: right; margin-bottom: 0; margin-top: 5px;"><label>Journal</label></div>
-					<div class='col-md-4' style='padding-left: 0;'><input id='modal-journal' class='form-control' type='text' style='text-align: center' readonly /></div>
+			
+				<div class="modal-footer" style='border-top: 1px inset; padding-top: 5px; padding-bottom: 0px;'>
+					<input id='modal-submit' class='btn btn-success btn-lg' type='submit' value='Update' style='display: none; padding: 10px 20px 20px 20px; font-size: 12px;'/>
+					<button id='modal-close' type="button" class="btn btn-info" data-dismiss='modal'>Close</button>
 				</div>
-				<div class='row'>
-					<div class='col-md-4' style='margin-bottom: 5px;'>
-						<label style='font-size: 11px;'>Document Year</label>
-						<input id='modal-doc-yr' class='form-control' type='text' style='text-align: center' readonly />
-					</div>
-					<div class='col-md-4' style='margin-bottom: 5px;'>
-						<label style='font-size: 11px;'>Document Month</label>
-						<input id='modal-doc-month' class='form-control' type='text' style='text-align: center' readonly />
-					</div>
-					<div class='col-md-4' style='margin-bottom: 5px;'>
-						<label style='font-size: 11px;'>Document Date</label>
-						<input id='modal-doc-date' class='form-control' type='text' style='text-align: center' readonly />
-					</div>
-				</div>
-				<div class='row'>
-					<div class='col-md-3' style='padding-right: 0; margin-bottom: 5px;'>
-						<label style='font-size: 11px;'>Account Code</label>
-						<input id='modal-acc-code' class='form-control' type='text' style='text-align: center' readonly />
-					</div>
-					<div class='col-md-9' style=' margin-bottom: 5px;'>
-						<label style='font-size: 11px;'>Account Name</label>
-						<input id='modal-acc-name' class='form-control' type='text' style='text-align: center' readonly />
-					</div>
-				</div>
-				<div class='row'>
-					<div class='col-md-3' style='padding-right: 0; margin-bottom: 10px;'>
-						<label style='font-size: 11px;'>Account Category Code</label>
-						<input id='modal-acc-cat-code' class='form-control' type='text' style='text-align: center' readonly />
-					</div>
-					<div class='col-md-9' style='margin-bottom: 10px;'>
-						<label style='font-size: 11px;'>Account Category Name</label>
-						<input id='modal-acc-cat-name' class='form-control' type='text' style='text-align: center' readonly />
-					</div>
-				</div>
-				<div class='row'>
-					<div class='col-md-6' style='padding-right: 0; margin-bottom: 0;'>
-						<label style='font-size: 11px;'>Debit Ammount</label>
-						<input id='modal-debit-ammount' class='form-control' type='text' style='text-align: center' readonly />
-					</div>
-					<div class='col-md-6' style='margin-bottom: 0;'>
-						<label style='font-size: 11px;'>Credit Ammount</label>
-						<input id='modal-credit-ammount' class='form-control' type='text' style='text-align: center' readonly />
-					</div>
-				</div>
-			</div>
-
-			<div class="modal-footer">
-				<button id='modal-close' type="button" class="btn btn-primary" data-dismiss='modal' style='float: left;'>Close</button>
-			</div>
+			</form>
 		</div>
 	</div>
 </div>

@@ -13,6 +13,17 @@
             {'data': 'mop_id'}, {'data': 'mop_code'}, {'data': 'mop_name'}, {'data': 'mop_shortname'}, {'data': 'mop_type'},],
             columnDefs: [{targets: 0, width: '60px'}, {targets: 1, width: '1px'}, {targets: 2, width: '150px'}, {targets: 4, width: '150px'}, {targets: 5, width: '150px'}],
         });
+
+        $('div').on('click', '.close-popover', function(){
+
+             $('.popover').popover('hide');
+        });
+
+        $('div').on('click', '#close-btn', function(){
+
+             $('.popover').popover('hide');
+        });
+
         $('#add').click(function(){
             $(this).popover({
                 animation: true,
@@ -34,11 +45,14 @@
             $(this).popover({
                 animation: true,
                 html: true,
-                placement: 'right',
+                placement: function(context,src){
+                    $(context).addClass('view-popover-css');
+                    return 'right';
+                },
                 content: function(){
                     return $('#view-popover').html();
                 },
-                container: '.navbar-body'
+                container:'.navbar-body'
             });
         });
         $('#modes-of-payment-table').on('click', '.edit', function(){
@@ -102,6 +116,18 @@
         $('.navbar-body').on('click', '.update-type-btn', function(){
             $('#update-options').html($('#mop-type-select').html());
         });
+
+        $('.navbar-body').on('click', '.form-control', function(){
+            $('#add-options').empty();
+        });
+        $('.navbar-body').on('click', '.form-control', function(){
+            $('#edit-options').empty();
+        });
+
+        $('.navbar-body').on('click', '.form-control', function(){
+            $('#update-options').empty();
+        });
+        
         initButtonPrevention();
     });
     var initButtonPrevention = function(){

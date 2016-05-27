@@ -69,34 +69,90 @@
 		width: 800px;
 
 	}
+
+</style>
+<style>
+	.popover{
+
+		z-index: 999999999999;
+		max-width: 100%;
+		background-color: #e8e8e8;
+		box-shadow: 10px;
+		width: 1100px;
+
+	}
+
+	.view-popover{
+		width: 500px;
+	}
+
 	.popover-content{
 
 		padding-left: 0px;
 		padding-right: 0px;
 	}
+
 	.modal-title{
 		padding-left: 10px;
 
 	}
 	.body{
+		width: 450px;
 		background-color: white;
 	}
+
+	.view-body{
+		background-color: white;
+	}
+
 	.modal-footer{
 		background-color: #e8e8e8;
-		width: 797px;
+		width: 1097px;
 	}
+
 	.modal-body{
-		width: 100%;
-		height: 400px;
+		height: 527px;
+		padding-left: 0px; 
+        border-right: 1px solid #D5D5D5;
+        width: 450px;
+	}
+
+	.view-modal-body{
+		height: 450px;
    	    padding-right: 24px;
    	    padding-left: 0px;
+   	    padding-top: 9px;
         border-right: 1px solid #D5D5D5;
 	}
+
 	.col-md-8{
 		padding-left: 0px;
 	}
-	.col-md-4{
-        width: 250px;
-   		height: 450px;
+
+	.col-md-7{
+		padding-left: 0px;
+		margin-right: 12px;
+		width: 450px;
 	}
+
+	.col-md-6{
+		margin-right: 12px;
+		padding-left: 0px;
+        width: 300px;
+   		height: 527px;
+   		padding-top: 35px;
+   		border-right: 1px solid #D5D5D5;
+   		border-left: 1px solid #D5D5D5;
+	}
+
+	.adding-field{
+		padding-left: 14px;
+	}
+
+	.col-md-1{
+ 		width: 309px;
+   		height: 527px;
+
+	}
+
 </style>

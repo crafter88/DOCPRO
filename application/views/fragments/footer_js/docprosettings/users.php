@@ -3,21 +3,27 @@
         var table = $('#users-table').DataTable({
             ajax: '/docpro_settings/users/get',
             columns: [{
-                mData: null, bSortable: false,
-                mRender: function(data, type, full){
+               mData: null,
+               bSortable: false,
+               mRender: function(data, type, full){
                    return "<button type='button' class='btn btn-primary btn-xs view' data-hint='View'><i class='fa fa-eye'></i></button>\n\
                            <button type='button' class='btn btn-success btn-xs edit' data-hint='Edit'><i class='fa fa-pencil'></i></button>";
-                }
-            },
-                {'data': 'u_id'}, {'data': 'u_code'},
-                {
-                mRender: function(data, type, full){
-                   return full.p_fname+" "+full.p_mname+" "+full.p_lname;
-                }
-            },
-            {'data': 'u_name'}, {'data': 'u_pass_text'}, {'data': 'cb_name'}, {'data': 'u_type'},],
-            columnDefs: [{targets: 0, width: '1px'}, {targets: 1, width: '1px'},{targets: 2, width: '1px'}] ,
+               }
+           },
+            {'data': 'u_id'}, {'data': 'u_name'}, {'data': 'u_pass_text'}, {'data': 'cb_name'}, {'data': 'u_type'},],
+            columnDefs: [{targets: 0, width: '1px'}, {targets: 1, width: '1px'},{targets: 5, width: '81px'}] ,
         });
+
+        $('div').on('click', '.close-popover', function(){
+
+             $('.popover').popover('hide');
+        });
+
+        $('div').on('click', '#close-btn', function(){
+
+             $('.popover').popover('hide');
+        });
+        
         $('#add').click(function(){
             $(this).popover({
                 animation: true,
@@ -97,6 +103,14 @@
         });
         $("input:not(input[name='edit-user-type']), select").focus(function(){
             $('.popover').hide();
+        });
+
+        $('.navbar-body').on('click','#addfield',function(){
+            var i = $('#p-scents div').size() + 1;
+            var scntDiv = $('#p-scents');
+            $("<tr><td class='adding-field' colspan='3' style='padding-top: 10px;'><div class='input-group' style='width: 100%'><input id='companies' class='form-control' type='text' placeholder='Select...' readonly style='width: 238px;'><span type='button' class='input-group-addon'><i class='fa fa-caret-right'></i></span></div></td></tr>").appendTo(scntDiv);
+                i++;
+                return false;
         });
         initButtonPrevention();
     });

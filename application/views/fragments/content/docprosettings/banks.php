@@ -23,12 +23,12 @@
 	</div>
 </div>
 <div id='add-popover' class='modal fade' role='dialog' tabindex='-1'>
-	<div class='modal-header'>
-		<button class='close close-popover' type='button' data-dismiss='modal'><span aria-hidden='true'>&times;</span></button>
-		<h3 class='modal-title'>Add Bank</h3>
+	<div style='border-bottom: 1px groove; height: 30px; padding-bottom: 10px;'>
+		<button class='close close-popover' type='button' data-dismiss='modal' style='padding-right: 10px;'><span aria-hidden='true'>&times;</span></button>
+		<h4 class='modal-title' style="font-family: 'Roboto Condensed', sans-serif;">Add Bank</h4>
 	</div>
-	<div class='col-md-8'>
-		<form action='banks/add' method='post'>
+	<div>
+		<form action='banks/add' method='post' class='body'>
 			<div class='modal-body'>
 				<table width='90%'>
 					<tr>
@@ -45,19 +45,19 @@
 					</tr>
 				</table>
 			</div>
-			<div class='modal-footer'>
-				<button class='btn btn-primary btn-sm' type='submit' style='float: left;'>Ok</button>
+			<div class='modal-footer' style='border-top: 1px inset; padding-top: 5px; padding-bottom: 0px;'>
+				<button id='close-btn' class='btn btn-info btn-sm' type='submit' style='float: right;'>Ok</button>
 			</div>
 		</form>
 	</div>
 </div>
 <div id='view-popover' class='modal fade' role='dialog' tabindex='-1'>
-	<div class='modal-header'>
-		<button class='close close-popover' type='button' data-dismiss='modal'><span aria-hidden='true'>&times;</span></button>
-		<h3 class='modal-title'>View Bank</h3>
+	<div style='border-bottom: 1px groove; height: 30px; padding-bottom: 10px;'>
+		<button class='close close-popover' type='button' data-dismiss='modal' style='padding-right: 10px;'><span aria-hidden='true'>&times;</span></button>
+		<h4 class='modal-title' style="font-family: 'Roboto Condensed', sans-serif;">View Bank</h4>
 	</div>
-	<div class='col-md-8'>
-		<form>
+	<div>
+		<form class='body'>
 			<div class='modal-body'>
 				<table width='90%'>
 					<tr>
@@ -74,19 +74,19 @@
 					</tr>
 				</table>
 			</div>
-			<div class='modal-footer'>
-				<button class='btn btn-primary btn-sm close-popover' type='button' data-dismiss='modal' style='float: left;'>Close</button>
+			<div class='modal-footer' style='border-top: 1px inset; padding-top: 5px; padding-bottom: 0px;'>
+				<button id='close-btn' class='btn btn-info btn-sm close-popover' type='button' data-dismiss='modal' style='float: right;'>Close</button>
 			</div>
 		</form>
 	</div>
 </div>
 <div id='edit-popover' class='modal fade' role='dialog' tabindex='-1'>
-	<div class='modal-header'>
+	<div style='border-bottom: 1px groove; height: 30px; padding-bottom: 10px;'>
 		<button class='close close-popover' type='button' data-dismiss='modal'><span aria-hidden='true'>&times;</span></button>
-		<h3 class='modal-title'>Edit Bank</h3>
+		<h4 class='modal-title' style="font-family: 'Roboto Condensed', sans-serif;">Edit Bank</h4>
 	</div>
-	<div class='col-md-8'>
-		<form action='banks/edit' method='post'>
+	<div>
+		<form action='banks/edit' method='post' class='body'>
 			<div class='modal-body'>
 				<table width='90%'>
 					<tr>
@@ -104,19 +104,19 @@
 				</table>
 			</div>
 			<input type='hidden' id='edit-id' name='edit-id' value=''>
-			<div class='modal-footer'>
-				<button class='btn btn-primary btn-sm' type='submit' style='float: left;'>Ok</button>
+			<div class='modal-footer' style='border-top: 1px inset; padding-top: 5px; padding-bottom: 0px;'>
+				<button class='btn btn-info btn-sm' type='submit' style='float: right;'>OK</button>
 			</div>
 		</form>
 	</div>
 </div>
 <div id='update-popover' class='modal fade' role='dialog' tabindex='-1'>
-	<div class='modal-header'>
-		<button class='close close-popover' type='button' data-dismiss='modal'><span aria-hidden='true'>&times;</span></button>
-		<h3 class='modal-title'>Update Bank</h3>
+	<div style='border-bottom: 1px groove; height: 30px; padding-bottom: 10px;'>
+		<button class='close close-popover' type='button' data-dismiss='modal' style='padding-right: 10px;'><span aria-hidden='true'><span aria-hidden='true'>&times;</span></button>
+		<h4 class='modal-title' style="font-family: 'Roboto Condensed', sans-serif;">Update Bank</h4>
 	</div>
-	<div class='col-md-8'>
-		<form action='banks/update' method='post'>
+	<div>
+		<form action='banks/update' method='post' class='body'>
 			<div class='modal-body'>
 				<table width='90%'>
 					<tr>
@@ -133,8 +133,8 @@
 					</tr>
 				</table>
 			</div>
-			<div class='modal-footer'>
-				<button class='btn btn-primary btn-sm' type='submit' data-dismiss='modal' style='float: left;'>Ok</button>
+			<div class='modal-footer' style='border-top: 1px inset; padding-top: 5px; padding-bottom: 0px;'>
+				<button class='btn btn-info btn-sm' type='submit' data-dismiss='modal' style='float: right;'>OK</button>
 			</div>
 		</form>
 	</div>

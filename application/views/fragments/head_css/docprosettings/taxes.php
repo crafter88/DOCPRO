@@ -61,6 +61,9 @@
 	.tab-content div:nth-child(2) .container > .row > .col-md-12 > div:nth-child(2) > .col-md-4 > .row:last-child{
 		margin-bottom: 10px;
 	}
+</style>
+
+<style>
 	.popover{
 		z-index: 999999999999;
 		max-width: 100%;
@@ -69,11 +72,22 @@
 		width: 800px;
 
 	}
+
+	.viewpopover{
+		z-index: 999999999999;
+		max-width: 100%;
+		background-color: #e8e8e8;
+		box-shadow: 10px;
+		width: 500px;
+
+	}
+
 	.popover-content{
 
 		padding-left: 0px;
 		padding-right: 0px;
 	}
+
 	.modal-title{
 		padding-left: 10px;
 
@@ -83,20 +97,39 @@
 	}
 	.modal-footer{
 		background-color: #e8e8e8;
-		width: 797px;
+		width: 796px;
 	}
+
 	.modal-body{
 		width: 100%;
-		height: 400px;
+		height: 315px;
    	    padding-right: 24px;
    	    padding-left: 0px;
-        border-right: 1px solid #D5D5D5;
+
 	}
 	.col-md-8{
 		padding-left: 0px;
 	}
+
 	.col-md-4{
         width: 250px;
-   		height: 450px;
+   		height: 315px;
 	}
+
+	.view-modal-body{
+		height: 350px;
+   	    padding-right: 0px;
+   	    padding-left: 24px;
+
+	}
+
+	.view-body{
+		background-color: white;
+	}
+
+	.view-popover-css{
+		width: 550px;
+	}
+
+
 </style>

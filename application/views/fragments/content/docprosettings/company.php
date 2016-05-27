@@ -45,17 +45,19 @@
 	<button class='btn btn-default select-option-tax-type' tax-type-id='<?php echo $tt->tt_code;?>' type='button' style='width: 100%'><?php echo $tt->tt_shortname;?></button>
 	<?php }}?>
 </div>
+
+
 <div id='add-popover' class='modal fade' role='dialog' tabindex='-1'>
-	<div class='modal-header'>
-		<button class='close close-popover' type='button' data-dismiss='modal'><span aria-hidden='true'>&times;</span></button>
-		<h3 class='modal-title'>Add Company</h3>
+	<div style='border-bottom: 1px groove; height: 30px; padding-bottom: 10px;'>
+		<button class='close close-popover' type='button' data-dismiss='modal' style='padding-right: 10px;'><span aria-hidden='true'>&times;</span></button>
+		<h4 class='modal-title' style="font-family: 'Roboto Condensed', sans-serif;">Add Company</h4>
 	</div>
 	<div class='col-md-8'>
-		<form action='company/add' method='post'>
+		<form action='company/add' method='post' class='body'>
 			<div class='modal-body'>
-				<input type='text' style='border: none; float: right; width: 40px; margin-right: 50px; padding-left: 3px;' disabled>
+				<input type='text' style='border: none; float: right; width: 80px; margin-right: 50px; text-align: center; font-weight: bold; background-color: white' disabled>
 				<label style='float: right;'>Sequence: </label>
-				<table width='90%'>
+				<table width='100%'>
 					<tr>
 						<input type='hidden' name='add-class-id'>
 						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Classification</label></td>
@@ -104,24 +106,24 @@
 					</tr>
 				</table>
 			</div>
-			<div class='modal-footer'>
-				<button class='btn btn-primary btn-sm' type='submit' style='float: left;'>Ok</button>
+			<div class='modal-footer' style='border-top: 1px inset; padding-top: 5px; padding-bottom: 0px;'>
+				<button class='btn btn-info btn-sm' type='submit' style='float: right;'>Ok</button>
 			</div>
 		</form>
 	</div>
 	<div class='col-md-4' id='add-options'style='background-color: white;'>
+
 	</div>
 </div>
-<div id='view-popover' class='modal fade' role='dialog' tabindex='-1'>
-	<div class='modal-header'>
-		<button class='close close-popover' type='button' data-dismiss='modal'><span aria-hidden='true'>&times;</span></button>
-		<h3 class='modal-title'>View Company</h3>
+<div id='view-modal' class='modal fade' role='dialog' tabindex='-1'>
+	<div style='border-bottom: 1px groove; height: 35px'>
+		<button class='close close-popover' type='button' data-dismiss='modal' style='padding-right: 9px;'><span aria-hidden='true'>&times;</span></button>
+		<h4 class='modal-title' style="font-family: 'Roboto Condensed', sans-serif;">View Company</h4>
 	</div>
-	<div class='col-md-8'>
-		<form>
-			<div class='modal-body'>
-				<input id='view-seq' type='text' style='border: none; float: right; width: 40px; margin-right: 50px; padding-left: 3px;' disabled>
-				<label style='float: right;'>Sequence: </label>
+		<form class='view-body'>
+			<div class='view-modal-body'>
+				<input id='view-seq' type='text'  style='border: none; float: right; width: 40px; margin-right: 50px; background-color: white; text-align: center; font-weight: bold;  padding-top: 9px;' disabled>
+				<label style='float: right; padding-top: 9px;'>Sequence: </label>
 				<table width='90%'>
 					<tr>
 						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Code</label></td>
@@ -130,19 +132,13 @@
 					<tr>
 						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Classification</label></td>
 						<td colspan='3' style='padding-top: 10px;'>
-							<div class='input-group' style='width: 100%'>
-								<input id='view-class' class='form-control' type='text' placeholder='Select...' readonly>
-								<span type='button' class='input-group-addon'><i class='fa fa-caret-right'></i></span>
-							</div>
+							<input id='view-class' class='form-control' type='text' readonly>
 						</td>
 					</tr>
 					<tr>
 						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Type</label></td>
 						<td colspan='3' style='padding-top: 10px;'>
-							<div class='input-group' style='width: 100%'>
-								<input id='view-type' class='form-control' type='text' placeholder='Select...' readonly>
-								<span type='button' class='input-group-addon'><i class='fa fa-caret-right'></i></span>
-							</div>
+							<input id='view-type' class='form-control' type='text' readonly>
 						</td>
 					</tr>
 					<tr>
@@ -164,31 +160,27 @@
 					<tr>
 						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Tax Type</label></td>
 						<td colspan='3' style='padding-top: 10px;'>
-							<div class='input-group' style='width: 100%'>
-								<input id='view-tax-type' class='form-control' type='text' placeholder='Select...' readonly>
-								<span type='button' class='input-group-addon'><i class='fa fa-caret-right'></i></span>
-							</div>
+							<input id='view-tax-type' class='form-control' type='text' readonly>
 						</td>
 					</tr>
 				</table>
 			</div>
-			<div class='modal-footer'>
-				<button class='btn btn-primary btn-sm close-popover' type='button' data-dismiss='modal' style='float: left;'>Close</button>
+			<div class='modal-footer' style='border-top: 1px inset; padding-top: 5px; padding-bottom: 0px; width: 497px;'>
+				<button id='close-btn' class='btn btn-info btn-sm close-popover' type='button' data-dismiss='modal' style='float: right;'>Close</button>
 			</div>
 		</form>
-	</div>
 </div>
 <div id='edit-popover' class='modal fade' role='dialog' tabindex='-1'>
-	<div class='modal-header'>
-		<button class='close close-popover' type='button' data-dismiss='modal'><span aria-hidden='true'>&times;</span></button>
-		<h3 class='modal-title'>Edit Company</h3>
+	<div style='border-bottom: 1px groove; height: 30px; padding-bottom: 10px;'>
+		<button class='close close-popover' type='button' data-dismiss='modal' style='padding-right: 10px;'><span aria-hidden='true'>&times;</span></button>
+		<h4 class='modal-title' style="font-family: 'Roboto Condensed', sans-serif;">Edit Company</h4>
 	</div>
 	<div class='col-md-8'>
-		<form action='company/edit' method='post'>
+		<form action='company/edit' method='post' class='body'>
 			<div class='modal-body'>
-				<input id='edit-seq' type='text' style='border: none; float: right; width: 40px; margin-right: 50px; padding-left: 3px;' disabled>
+				<input id='edit-seq' type='text' style='border: none; float: right; width: 80px; text-align: center; font-weight: bold; background-color: white;' disabled>
 				<label style='float: right;'>Sequence: </label>
-				<table width='90%'>
+				<table width='100%'>
 					<tr>
 						<input id='edit-class-id' type='hidden' name='edit-class-id'>
 						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Classification</label></td>
@@ -238,26 +230,26 @@
 				</table>
 			</div>
 			<input type='hidden' id='edit-id' name='edit-id'>
-			<div class='modal-footer'>
-				<button class='btn btn-primary btn-sm' type='submit' style='float: left;'>Ok</button>
+			<div class='modal-footer' style='border-top: 1px inset; padding-top: 5px; padding-bottom: 0px;'>
+				<button class='btn btn-info btn-sm' type='submit' style='float: right;'>OK</button>
 			</div>
 		</form>
 	</div>
 	<div class='col-md-4' id='edit-options'style='background-color: white;'>
+
 	</div>
 </div>
 <div id='update-popover' class='modal fade' role='dialog' tabindex='-1'>
-	<div class='modal-header'>
-		<button class='close close-popover' type='button' data-dismiss='modal'><span aria-hidden='true'>&times;</span></button>
-		<h3 class='modal-title'>Update Company</h3>
+	<div style='border-bottom: 1px groove; height: 30px; padding-bottom: 10px;'>
+		<button class='close close-popover' type='button' data-dismiss='modal' style='padding-right: 10px;'><span aria-hidden='true'>&times;</span></button>
+		<h4 class='modal-title' style="font-family: 'Roboto Condensed', sans-serif;">Update Company</h4>
 	</div>
 	<div class='col-md-8'>
-		<form action='company/update' method='post'>
+		<form action='company/update' method='post' class='body'>
 			<div class='modal-body'>
-				<input id='update-seq' type='hidden'>
-				<input type='text' style='border: none; float: right; width: 40px; margin-right: 50px; padding-left: 3px;' disabled>
+				<input id='update-seq' type='text' style='border: none; float: right; width: 80px; text-align: center; font-weight: bold; background-color: white;'>
 				<label style='float: right;'>Sequence: </label>
-				<table width='90%'>
+				<table width='100%'>
 					<tr>
 						<input id='update-class-id' type='hidden' name='update-class-id'>
 						<td style='padding-top: 10px; width: 150px; text-align: right; padding-right: 20px;'><label>Classification</label></td>
@@ -307,8 +299,8 @@
 				</table>
 			</div>
 			<input type='hidden' id='update-id' name='update-id'>
-			<div class='modal-footer'>
-				<button class='btn btn-primary btn-sm' type='submit' data-dismiss='modal' style='float: left;'>Ok</button>
+			<div class='modal-footer' style='border-top: 1px inset; padding-top: 5px; padding-bottom: 0px;'>
+				<button class='btn btn-info btn-sm' type='submit' data-dismiss='modal' style='float: right;'>OK</button>
 			</div>
 		</form>
 	</div>
