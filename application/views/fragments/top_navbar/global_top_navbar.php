@@ -9,7 +9,7 @@
 							<i class="fa fa-th icon"></i>
 						</button>
 						
-						<a href="<?php base_url();?><?php echo '/'.$back_button; ?>" class='btn btn-default tooltip-toggle hvr-sweep-to-left' title='Go Back'><i class='fa fa-arrow-left'></i></a>
+						<a href="<?php echo base_url();?><?php echo '/'.$back_button; ?>" class='btn btn-default tooltip-toggle hvr-sweep-to-left' title='Go Back'><i class='fa fa-arrow-left'></i></a>
 						<span><?php if(isset($title)){ echo $title; }?></span>
 							
 						<ul class="nav navbar-nav navbar-right" style='width: 100%;'>
