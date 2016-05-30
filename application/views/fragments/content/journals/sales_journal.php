@@ -265,19 +265,20 @@
 													</div>
 													<div class='col-md-3 col-input-custom'>
 														<label>Name</label>
-														<select ng-model='business_partner_name' class='form-control select2'>
-															<option>Company 1</option>
-															<option>Company 2</option>
-															<option>Company 3</option>
-														</select>
+														<ui-select ng-model="selected_bp.bp" theme="selectize" class="form-control">
+															<ui-select-match>{{$select.selected.name}}</ui-select-match>
+															<ui-select-choices repeat="bp in business_partner_array | filter: $select.search">
+															  <div ng-bind-html="bp.name | highlight: $select.search"></div>
+															</ui-select-choices>
+														</ui-select>
 													</div>
 													<div class='col-md-3 col-input-custom'>
 														<label>Address</label>
-														<input ng-model='business_partner_address' class='form-control' type='text' style='color: #000C98; text-align: center;' readonly />
+														<input ng-model='selected_bp.bp.address' class='form-control' type='text' style='color: #000C98; text-align: center;' readonly />
 													</div>
 													<div class='col-md-3 col-input-custom'>
 														<label style='width: 100%'>TIN</label>
-														<input ng-model='business_partner_tin' class='form-control' type='text' style='color: #000C98; text-align: center;' readonly />
+														<input ng-model='selected_bp.bp.tin' class='form-control' type='text' style='color: #000C98; text-align: center;' readonly />
 													</div>
 												</div>
 												<div class='col-md-12 transaction-input-row-gutter' style='margin-top: 10px;'>
@@ -286,7 +287,7 @@
 													</div>
 													<div class='col-md-3 col-input-custom'>
 														<label>Particulars</label>
-														<input ng-model='business_partner_particulars' type='text' class='form-control' style='color: #000C98; text-align: center;' readonly />
+														<input ng-model='selected_bp.bp.particulars' type='text' class='form-control' style='color: #000C98; text-align: center;' readonly />
 													</div>
 													<div class='col-md-3 col-input-custom'>
 														<label>Period</label>
@@ -324,7 +325,7 @@
 													</div>
 													<div class='col-md-2 col-input-custom'>
 														<label>Mode of Payment</label>
-														<select ng-model='payment_mode' class='form-control select2'>
+														<select ng-model='payment_mode' class='form-control'>
 															<option>Bills</option>
 															<option>Check</option>
 															<option>Petty Cash Fund</option>
@@ -425,7 +426,7 @@
 														<add-product-services-btn></add-product-services-btn>
 														<table class='table table-hover table-bordered table-striped' style='margin-bottom: 0;'>
 															<thead>
-																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Product Service Code</th>
+																<th style='text-align: center; background-color: #D4D4D4; color: #000; width: 184px;'>Product Service Code</th>
 																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Product Description</th>
 																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Quantity</th>
 																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Unit</th>
@@ -434,20 +435,22 @@
 																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Option</th>
 															</thead>
 															<tbody id='product-services-table'>
-																<tr>
+																<tr ng-repeat='product_services in product_services_array track by $index'>
 																	<td>
-																		<select class='form-control select2' name='product_services_code[]' style='text-align: center;'>
-																			<option>P-123</option>
-																			<option>P-111</option>
-																			<option>P-001</option>
-																		</select>
+																		<ui-select ng-model="product_services.code" theme="selectize" class="form-control">
+																			<ui-select-match>{{$select.selected.code}}</ui-select-match>
+																			<ui-select-choices repeat="item in product_services_code | filter: $select.search">
+																			  <div ng-bind-html="item.code | highlight: $select.search"></div>
+																			</ui-select-choices>
+																		</ui-select>
 																	</td>
-																	<td><input class='form-control' type='text' name='product_services_description[]' style='text-align: center;' readonly ></td>
-																	<td><input class='form-control' type='text' name='product_services_qty[]' style='text-align: center;'></td>
-																	<td><input class='form-control' type='text' name='product_services_unit[]' style='text-align: center;'></td>
-																	<td><input class='form-control' type='text' name='product_services_unit_price[]' style='text-align: center;'></td>
-																	<td><input class='form-control' type='text' name='product_services_gross_amount[]' style='text-align: center;'></td>
-																	<td></td>
+																	<td><input ng-model='product_services.code.description' class='form-control' type='text' name='product_services_description[]' style='text-align: center;' readonly ></td>
+																	<td><input ng-model='product_services.qty' class='form-control' type='text' name='product_services_qty[]' style='text-align: center;'></td>
+																	<td><input ng-model='product_services.unit' class='form-control' type='text' name='product_services_unit[]' style='text-align: center;'></td>
+																	<td><input ng-model='product_services.unit_price' class='form-control' type='text' name='product_services_unit_price[]' style='text-align: center;'></td>
+																	<td><input ng-model='product_services.gross_amount' class='form-control' type='text' name='product_services_gross_amount[]' style='text-align: center;'></td>
+																	<td ng-if='product_services.delete_btn === false'></td>
+																	<td ng-if='product_services.delete_btn === true'><button class='btn btn-danger btn-xs' ng-click='product_services_delete_row($event, $index)' type='button'><i class='fa fa-times'></i></button></td>
 																</tr>
 															</tbody>
 														</table>
@@ -475,7 +478,7 @@
 														<add-vat-btn></add-vat-btn>
 														<table class='table table-hover table-bordered table-striped' style='margin-bottom: 0;'>
 															<thead>
-																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Tax Code</th>
+																<th style='text-align: center; background-color: #D4D4D4; color: #000; width: 184px;'>Tax Code</th>
 																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Nature</th>
 																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Rate</th>
 																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>VAT</th>
@@ -484,14 +487,22 @@
 																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Option</th>
 															</thead>
 															<tbody id='vat-table'>
-																<tr>
-																	<td><input class='form-control' type='text' name='tax_code[]' style='text-align: center;' readonly /></td>
-																	<td><input class='form-control' type='text' name='nature[]' style='text-align: center;' /></td>
-																	<td><input class='form-control' type='text' name='rate[]' style='text-align: center;' readonly /></td>
-																	<td><input class='form-control' type='text' name='vat[]' style='text-align: center;'></td>
-																	<td><input class='form-control' type='text' name='net_vat_amount[]' style='text-align: center;'></td>
-																	<td><input class='form-control' type='text' name='gross_amount[]' style='text-align: center;'></td>
-																	<td></td>
+																<tr ng-repeat='vat in vat_array track by $index'>
+																	<td>
+																		<ui-select ng-model="vat.code" theme="selectize" class="form-control">
+																			<ui-select-match>{{$select.selected.code}}</ui-select-match>
+																			<ui-select-choices repeat="item in vat_code | filter: $select.search">
+																			  <div ng-bind-html="item.code | highlight: $select.search"></div>
+																			</ui-select-choices>
+																		</ui-select>
+																	</td>
+																	<td><input ng-model='vat.nature' class='form-control' type='text' name='nature[]' style='text-align: center;' /></td>
+																	<td><input ng-model='vat.code.rate' class='form-control' type='text' name='rate[]' style='text-align: center;' readonly /></td>
+																	<td><input ng-model='vat.vat' class='form-control' type='text' name='vat[]' style='text-align: center;'></td>
+																	<td><input ng-model='vat.net_vat' class='form-control' type='text' name='net_vat_amount[]' style='text-align: center;'></td>
+																	<td><input ng-model='vat.gross_amount' class='form-control' type='text' name='gross_amount[]' style='text-align: center;'></td>
+																	<td ng-if='vat.delete_btn === false'></td>
+																	<td ng-if='vat.delete_btn === true'><button class='btn btn-danger btn-xs' ng-click='vat_delete_row($event, $index)' type='button'><i class='fa fa-times'></i></button></td>
 																</tr>
 															</tbody>
 														</table>
@@ -519,7 +530,7 @@
 														<add-discounts-btn></add-discounts-btn>
 														<table class='table table-hover table-bordered table-striped' style='margin-bottom: 0;'>
 															<thead>
-																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Deduction Code</th>
+																<th style='text-align: center; background-color: #D4D4D4; color: #000; width: 184px;'>Deduction Code</th>
 																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Nature</th>
 																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Rate</th>
 																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Deduction</th>
@@ -527,19 +538,21 @@
 																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Option</th>
 															</thead>
 															<tbody id='discounts-table'>
-																<tr>
+																<tr ng-repeat='discount in discount_array track by $index'>
 																	<td>
-																		<select class='form-control select2' name='deduction_code[]' style='text-align: center;'>
-																			<option>D001</option>
-																			<option>D342</option>
-																			<option>D657</option>
-																		</select>
+																		<ui-select ng-model="discount.code" theme="selectize" class="form-control">
+																			<ui-select-match>{{$select.selected.code}}</ui-select-match>
+																			<ui-select-choices repeat="item in discount_code | filter: $select.search">
+																			  <div ng-bind-html="item.code | highlight: $select.search"></div>
+																			</ui-select-choices>
+																		</ui-select>
 																	</td>
-																	<td><input class='form-control' type='text' name='nature[]' style='text-align: center;' ></td>
-																	<td><input class='form-control' type='text' name='rate[]' style='text-align: center;'></td>
-																	<td><input class='form-control' type='text' name='tax_base[]' style='text-align: center;'></td>
-																	<td><input class='form-control' type='text' name='tax_withheld[]' style='text-align: center;'></td>
-																	<td></td>
+																	<td><input ng-model='discount.nature' class='form-control' type='text' name='nature[]' style='text-align: center;' ></td>
+																	<td><input ng-model='discount.rate' class='form-control' type='text' name='rate[]' style='text-align: center;'></td>
+																	<td><input ng-model='discount.tax_base' class='form-control' type='text' name='tax_base[]' style='text-align: center;'></td>
+																	<td><input ng-model='discount.tax_withheld' class='form-control' type='text' name='tax_withheld[]' style='text-align: center;'></td>
+																	<td ng-if='discount.delete_btn === false'></td>
+																	<td ng-if='discount.delete_btn === true'><button class='btn btn-danger btn-xs' ng-click='discount_delete_row($event, $index)' type='button'><i class='fa fa-times'></i></button></td>
 																</tr>
 															</tbody>
 															<table class='table table-bordered table-hover table-striped' style='width: 43.7%; margin-left: 29.4%; margin-top: 0; border: none;'>
@@ -690,35 +703,45 @@
 														<add-bank-details-btn></add-bank-details-btn>
 														<table class='table table-hover table-bordered table-striped' style='margin-bottom: 0;'>
 															<thead>
-																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Bank Code</th>
+																<th style='text-align: center; background-color: #D4D4D4; color: #000; width: 184px;'>Bank Code</th>
 																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Bank Name</th>
-																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Bank Account Number</th>
-																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Bank Document</th>
+																<th style='text-align: center; background-color: #D4D4D4; color: #000; width: 184px;'>Bank Account Number</th>
+																<th style='text-align: center; background-color: #D4D4D4; color: #000; width: 184px;'>Bank Document</th>
 																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Bank Amount</th>
 																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Bank Date</th>
 																<th style='text-align: center; background-color: #D4D4D4; color: #000;'>Option</th>
 															</thead>
 															<tbody id='bank-details-table'>
-																<tr>
-																	<td><input class='form-control' type='text' name='code[]' style='text-align: center;'></td>
-																	<td><input class='form-control' type='text' name='name[]' style='text-align: center;' readonly ></td>
+																<tr ng-repeat='bank in bank_array track by $index'>
 																	<td>
-																		<select class='form-control select2' name='account_number[]' style='text-align: center;'>
-																			<option>Acc-001</option>
-																			<option>Acc-111</option>
-																			<option>Acc-222</option>
-																		</select>
+																		<ui-select ng-model="bank.code" theme="selectize" class="form-control">
+																			<ui-select-match>{{$select.selected.code}}</ui-select-match>
+																			<ui-select-choices repeat="item in account_code | filter: $select.search">
+																			  <div ng-bind-html="item.code | highlight: $select.search"></div>
+																			</ui-select-choices>
+																		</ui-select>
+																	</td>
+																	<td><input ng-model='bank.code.name' class='form-control' type='text' name='name[]' style='text-align: center;' readonly ></td>
+																	<td>
+																		<ui-select ng-model="bank.account_number" theme="selectize" class="form-control">
+																			<ui-select-match>{{$select.selected.account_number}}</ui-select-match>
+																			<ui-select-choices repeat="item in account_number | filter: $select.search">
+																			  <div ng-bind-html="item.account_number | highlight: $select.search"></div>
+																			</ui-select-choices>
+																		</ui-select>
 																	</td>
 																	<td>
-																		<select class='form-control select2' type='text' name='document[]' style='text-align: center;'>
-																			<option>Doc-001</option>
-																			<option>Doc-111</option>
-																			<option>Doc-222</option>
-																		</select>
+																		<ui-select ng-model="bank.document" theme="selectize" class="form-control">
+																			<ui-select-match>{{$select.selected.document}}</ui-select-match>
+																			<ui-select-choices repeat="item in bank_document | filter: $select.search">
+																			  <div ng-bind-html="item.document | highlight: $select.search"></div>
+																			</ui-select-choices>
+																		</ui-select>
 																	</td>
-																	<td><input class='form-control' type='text' name='amount[]' style='text-align: center;'></td>
-																	<td><input class='form-control' type='text' name='date[]' style='text-align: center;'></td>
-																	<td></td>
+																	<td><input ng-model='bank.amount' class='form-control' type='text' name='amount[]' style='text-align: center;'></td>
+																	<td><input ng-model='bank.date' class='form-control' type='text' name='date[]' style='text-align: center;'></td>
+																	<td ng-if='bank.delete_btn === false'></td>
+																	<td ng-if='bank.delete_btn === true'><button class='btn btn-danger btn-xs' ng-click='bank_delete_row($event, $index)' type='button'><i class='fa fa-times'></i></button></td>
 																</tr>
 															</tbody>
 														</table>
@@ -854,35 +877,35 @@
 																</tr>
 																<tr>
 																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000;'><label>Address</label></td>
-																	<td style='padding-left: 5px;'><input ng-model='business_partner_address' class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='padding-left: 5px;'><input ng-model='selected_bp.bp.address' class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
 																	<td>&nbsp;</td>
 																	<td style='padding-right: 5px;'><input ng-model='payment_terms' class='form-control' type='text' style='border: none; background-color: #FFF; text-align: right; font-size: 14px !important;' readonly /></td>
 																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>Terms</label></td>
 																</tr>
 																<tr>
 																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000;'><label>TIN</label></td>
-																	<td style='padding-left: 5px;'><input ng-model='business_partner_tin' class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='padding-left: 5px;'><input ng-model='selected_bp.bp.tin' class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
 																	<td>&nbsp;</td>
 																	<td style='padding-right: 5px;'><input value='{{ payment_terms | computeDueDate:this }}' class='form-control' type='text' style='border: none; background-color: #FFF; text-align: right; font-size: 14px !important;' readonly /></td>
 																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000;'><label>Due Date</label></td>
 																</tr>
 																<tr>
 																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000;'><label>Business type</label></td>
-																	<td style='padding-left: 5px;'><input ng-model='business_partner_business_type' class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
+																	<td style='padding-left: 5px;'><input ng-model='selected_bp.bp.type' class='form-control' type='text' style='border: none; background-color: #FFF' readonly /></td>
 																	<td>&nbsp;</td>
 																	<td style='padding-right: 5px;'>&nbsp;</td>
 																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000;'>&nbsp;</td>
 																</tr>
 																<tr>
 																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; padding-bottom: 40px;'><label>Particulars</label></td>
-																	<td colspan='3' style='padding-left: 5px; padding-bottom: 40px;'><input ng-model='business_partner_particulars' class='form-control' type='text' style='border: none; background-color: #FFF;' readonly /></td>
+																	<td colspan='3' style='padding-left: 5px; padding-bottom: 40px;'><input ng-model='selected_bp.bp.particulars' class='form-control' type='text' style='border: none; background-color: #FFF;' readonly /></td>
 																	<td style='padding-left: 10px; background-color: #BBBBBB; color: #000;'>&nbsp;</td>
 																</tr>
 															</table>
 														</div>
 													
 														<div class='row' style='padding-left: 1%; padding-right: 1%;'>
-															<table class='table table-hover table-bordered table-responsive' style='width: 100%; margin: 0; border-top: none;'>
+															<table class='table table-hover table-bordered table-responsive' style='width: 100%; margin: 0; border-top: none; border-color: #BBBBBB;'>
 																<thead style='text-align: center; border-bottom: none;'>
 																	<th style='background-color: #BBBBBB; border-bottom: none; color: #000; text-align: right;'>Details</th>
 																	<th style='background-color: #D4D4D4; color: #000; border-bottom: 3px solid #999;'>Product Service Description</th>
@@ -893,65 +916,20 @@
 																	<th style='background-color: #BBBBBB; border-bottom: none;'></th>
 																</thead>
 																<tbody>
-																	<tr>
+																	<tr ng-repeat='item in product_services_array track by $index'>
 																		<td style='width: 200px; background-color: #BBBBBB; border: none;'></td>
-																		<td>&nbsp;</td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<th></th>
-																		<th style='width: 200px; background-color: #BBBBBB; border: none;'></th>
-																	</tr>
-																	<tr>
+																		<td>{{ item.code.description }}</td>
+																		<td>{{ item.qty }}</td>
+																		<td>{{ item.unit }}</td>
+																		<td>{{ item.unit_price }}</td>
+																		<td>{{ item.gross_amount }}</td>
 																		<td style='width: 200px; background-color: #BBBBBB; border: none;'></td>
-																		<td>&nbsp;</td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<th></th>
-																		<th style='width: 200px; background-color: #BBBBBB; border: none;'></th>
-																	</tr>
-																	<tr>
-																		<td style='width: 200px; background-color: #BBBBBB; border: none;'></td>
-																		<td>&nbsp;</td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<th></th>
-																		<th style='width: 200px; background-color: #BBBBBB; border: none;'></th>
-																	</tr>
-																	<tr>
-																		<td style='width: 200px; background-color: #BBBBBB; border: none;'></td>
-																		<td>&nbsp;</td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<th></th>
-																		<th style='width: 200px; background-color: #BBBBBB; border: none;'></th>
-																	</tr>
-																	<tr>
-																		<td style='width: 200px; background-color: #BBBBBB; border: none;'></td>
-																		<td colspan='4'></td>
-																		<td></td>
-																		<th style='width: 200px; background-color: #BBBBBB; border: none;'><label>Total</label></th>
-																	</tr>
-																	<tr>
-																		<td style='width: 200px; background-color: #BBBBBB; border: none;'></td>
-																		<td colspan='4'></td>
-																		<td></td>
-																		<th style='width: 200px; background-color: #BBBBBB; border: none;'><label>Trade Discount</label></th>
-																	</tr>
-																	<tr>
-																		<td style='width: 200px; background-color: #BBBBBB; border: none;'></td>
-																		<td colspan='4'></td>
-																		<td></td>
-																		<th style='width: 200px; background-color: #BBBBBB; border: none;'><label>Net of Trade Discount</label></th>
 																	</tr>
 																</tbody>
 															</table>
 														</div>
 													
-														<div class='row' style='padding-left: 1%; padding-right: 1%; margin-top: -1px'>
+														<div class='row' style='padding-left: 1%; padding-right: 1%;'>
 															<table width='100%'>
 																<tr>
 																	<td style='text-align: right; padding-right: 10px; background-color: #BBBBBB; color: #000; width: 200px;'><label>Mode of Payment<label></td>

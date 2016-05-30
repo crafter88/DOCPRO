@@ -1021,3 +1021,34 @@
 		background-color: 
 	}
 </style>
+
+
+<style>
+	/* SELECT 2 */
+
+	.select2 > .select2-choice.ui-select-match {
+		height: 29px;
+	}
+	.selectize-control > .selectize-dropdown {
+		top: 36px;
+	}
+	/* Some additional styling to demonstrate that append-to-body helps achieve the proper z-index layering. */
+	.select-box {
+	  background: #fff;
+	  position: relative;
+	  z-index: 1;
+	}
+	.alert-info.positioned {
+	  margin-top: 1em;
+	  position: relative;
+	  z-index: 10000; /* The select2 dropdown has a z-index of 9999 */
+	}
+	.selectize-control.single .selectize-input {
+		background: transparent;
+		border: none;
+		background-image: none;
+	}
+	.ui-select-container{
+		padding: 0;
+	}
+</style>

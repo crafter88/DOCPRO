@@ -125,3 +125,5 @@ $route['journals/disbursements'] 										= 'Journals_DIR/Disbursements/get_dis
 $route['journals/adjustments'] 											= 'Journals_DIR/Adjustments/get_adjustments_journal';
 $route['journals/specials']												= 'Journals_DIR/Specials/get_specials_journal';
 
+
+$route['signup']														= 'Signup';

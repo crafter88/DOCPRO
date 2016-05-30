@@ -27,8 +27,15 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>libs/flat/bower_components/checkbox3/dist/checkbox3.min.css">
 		<!--<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>libs/flat/bower_components/datatables/media/css/jquery.dataTables.min.css">-->
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>libs/flat/bower_components/datatables/media/css/dataTables.bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>libs/flat/bower_components/select2/dist/css/select2.min.css">
+		<!--<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>libs/flat/bower_components/select2/dist/css/select2.min.css">
+		-->
 		
+		<!-- Angular Select -->
+		<link href="<?php echo base_url(); ?>libs/angular_select/select2.min.css" rel="stylesheet">
+		<link href="<?php echo base_url(); ?>libs/angular_select/selectize.default.css" rel="stylesheet">
+		<link href="<?php echo base_url(); ?>libs/angular_select/select.min.css" rel="stylesheet">
+		<link href="<?php echo base_url(); ?>libs/selectize/css/normalize.css" rel="stylesheet">
+		<link href="<?php echo base_url(); ?>libs/selectize/css/selectize.css" rel="stylesheet">
 
 		<!-- CSS App -->
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>libs/flat/css/style.css">
@@ -144,7 +151,27 @@
 				text-align: center; 
 			}
 		</style>
-		
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>libs/angular_select/select.min.css">
+		<style>
+			.navbar-nav li .popover:before{
+				content: none !important;
+			}
+		</style>
+		<style>
+			.navbar-popover{
+				width: auto;
+				background-color: #FFF;
+				max-width: none;
+				height: auto;
+				padding: 9px 14px;
+			}
+			.navbar-popover .selectize-control.single .selectize-input {
+				background: transparent;
+				border: none;
+				background-image: none;
+			}
+
+		</style>
 	</head>
 
 	<body class="flat-blue">
@@ -680,12 +707,69 @@
 		</script>
 		
 		<script src="<?php echo base_url(); ?>libs/angular/angular.min.js"></script>
+		<script src="<?php echo base_url(); ?>libs/angular/angular-sanitize.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>libs/angular_select/select.min.js"></script>
 		
 		<!--- PIVOT TABLE -->
 		<script src='<?php echo base_url(); ?>libs/pivotTable/jquery-ui.min.js'></script>
 		<script src='<?php echo base_url(); ?>libs/pivotTable/jquery.ui.touch-punch.min.js'></script>
 		<script src='<?php echo base_url(); ?>libs/pivotTable/pivot.js'></script>
 		
+		
+		<script type='text/javascript' src='<?php echo base_url(); ?>libs/selectize/js/standalone/selectize.min.js'></script>
+		<script type='text/javascript' src='<?php echo base_url(); ?>libs/selectize/js/selectize.min.js'></script>
+		<script>
+			$('#navbar-branch-btn').click(function(){
+				$('.popover').popover('hide');
+				$(this).popover({
+					animation: true,
+					html: true,
+					placement: function(context, src) {
+						$(context).find('#select-branch').selectize({
+							allowEmptyOption: true,
+							create: true
+						});
+						$(context).addClass('navbar-popover');
+						return 'bottom';
+					},
+					content: function(){
+						return $('#navbar-branch').html();
+					},
+				});
+			});
+			$('#navbar-company-btn').click(function(){
+				$('.popover').popover('hide');
+				$(this).popover({
+					animation: true,
+					html: true,
+					placement: function(context, src) {
+						$(context).find('#select-company').selectize({
+							allowEmptyOption: true,
+							create: true
+						});
+						$(context).addClass('navbar-popover');
+						return 'bottom';
+					},
+					content: function(){
+						return $('#navbar-company').html();
+					},
+				});
+			});
+			$('#navbar-widget-btn').click(function(){
+				$('.popover').popover('hide');
+				$(this).popover({
+					animation: true,
+					html: true,
+					placement: function(context, src) {
+						$(context).addClass('navbar-popover');
+						return 'bottom';
+					},
+					content: function(){
+						return $('#navbar-widget').html();
+					},
+				});
+			});
+		</script>
 		
 		<?php if(isset($footer_js)){ $this->load->view($footer_js); } ?>
 	</body>
