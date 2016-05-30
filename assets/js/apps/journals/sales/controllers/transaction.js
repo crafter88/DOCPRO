@@ -1,5 +1,6 @@
 angular.module('journals')
 		.controller('transaction', ['$scope', function($scope){
+		//Document
 			var today = new Date();
 			$scope.transaction_date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
 			$scope.transaction_id = 1;
@@ -7,12 +8,18 @@ angular.module('journals')
 			
 			$scope.document_name = 'Sales Journal';
 			
+		//Business Partner
+			$scope.selected_bp = {};
+			$scope.business_partner_array = [
+												{name: 'Company 1', address: 'Address 1', tin: '111111', type: 'Merchandise', particulars: 'Particular 1'},
+												{name: 'Company 2', address: 'Address 2', tin: '222222', type: 'Manufacturing', particulars: 'Particular 2'},
+												{name: 'Company 3', address: 'Address 3', tin: '333333', type: 'Merchandise', particulars: 'Particular 3'},
+												{name: 'Company 4', address: 'Address 4', tin: '444444', type: 'Manufacturing', particulars: 'Particular 4'},
+												{name: 'Company 5', address: 'Address 5', tin: '555555', type: 'Merchandise', particulars: 'Particular 5'},
+											];
 			
-			//try
-			$scope.business_partner_address = 'Baguio City';
-			$scope.business_partner_tin = '4536345';
-			$scope.business_partner_business_type = 'Merchandise';
-			$scope.business_partner_particulars = 'Particulars 1';
+		//Document Details
+			$scope.product_services = [];
 		
 		}])
 		.filter('formatDate', function(){

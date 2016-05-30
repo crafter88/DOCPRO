@@ -1,1 +1,1 @@
-angular.module('journals', []);
+angular.module('journals', ['ngSanitize', 'ui.select']);
